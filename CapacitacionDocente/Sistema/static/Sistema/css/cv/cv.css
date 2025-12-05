@@ -1,0 +1,212 @@
+/* =========================================
+   ESTILOS GENERALES
+   ========================================= */
+.formulario.main-content {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #000;
+    max-width: 950px;
+    margin: 20px auto;
+    margin-top: 100px;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.mt-20 { margin-top: 20px; }
+.full-width { width: 100%; }
+.center-text { text-align: center; }
+
+/* =========================================
+   CINTILLA (HEADER)
+   ========================================= */
+.document-header-print {
+    margin-bottom: 20px;
+    border: 1px solid #000;
+}
+
+.cintilla-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cintilla-table td {
+    padding: 5px;
+    vertical-align: middle;
+    border-right: 1px solid #000;
+}
+.cintilla-table td:last-child { border-right: none; }
+
+.col-logos { width: 18%; text-align: center; }
+.logos-container { display: flex; justify-content: space-around; align-items: center; }
+.logo-img { max-height: 45px; width: auto; }
+
+.col-center { width: 64%; text-align: center; }
+.cintilla-main-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+.cintilla-norma { font-size: 10px; margin-top: 4px; }
+
+.col-meta { width: 18%; font-size: 9px; padding: 0 !important; }
+.meta-row { border-bottom: 1px solid #000; padding: 2px 5px; }
+.meta-row:last-child { border-bottom: none; }
+
+/* =========================================
+   TÍTULOS
+   ========================================= */
+.titles-container { text-align: center; margin-bottom: 20px; }
+.institute-title { font-size: 14px; font-weight: bold; margin: 0; text-transform: uppercase; }
+
+.section-header {
+    text-align: left;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 15px 0 10px 0;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+/* =========================================
+   CAMPOS TIPO LÍNEA (DATOS PERSONALES)
+   ========================================= */
+.form-row { margin-bottom: 10px; display: flex; align-items: flex-end; }
+.form-row label { font-weight: bold; margin-right: 10px; white-space: nowrap; }
+
+.input-line {
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    outline: none;
+    padding: 2px 5px;
+    font-family: inherit;
+    font-size: 11px;
+    flex-grow: 1;
+}
+.input-line:focus { border-bottom: 2px solid #004a99; }
+
+.split-row { gap: 20px; }
+.field-group { display: flex; align-items: flex-end; }
+.field-group.flex-grow { flex-grow: 1; width: 100%; }
+
+/* =========================================
+   TABLAS DE DATOS (EXPERIENCIA, ETC.)
+   ========================================= */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000;
+}
+.data-table th, .data-table td {
+    border: 1px solid #000;
+    padding: 5px;
+    vertical-align: middle;
+}
+.data-table th {
+    background-color: #e0e0e0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.bold-cell { font-weight: bold; }
+
+.input-clean {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: inherit;
+    font-size: 11px;
+    padding: 2px;
+}
+
+.textarea-clean {
+    width: 100%;
+    border: none;
+    resize: vertical;
+    background: transparent;
+    font-family: inherit;
+    font-size: 11px;
+    min-height: 30px;
+}
+
+/* =========================================
+   BOTÓN
+   ========================================= */
+.form-submit-row { text-align: center; margin-top: 40px; }
+.form-submit-row button {
+    padding: 10px 30px;
+    background-color: #1b396a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* =========================================
+   ESTILOS DE IMPRESIÓN (PDF)
+   ========================================= */
+@media print {
+    @page { size: letter portrait; margin: 1cm; }
+    body { padding: 0; margin: 0; font-family: Arial, sans-serif !important; -webkit-print-color-adjust: exact; }
+
+    /* OCULTAR ELEMENTOS WEB */
+    .Contenedor__Navbar, .web-only, .form-submit-row { display: none !important; }
+
+    .formulario.main-content {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* --- CINTILLA Y LOGOS (FIXED) --- */
+    .document-header-print {
+        display: block !important;
+        border: none !important;
+        margin-bottom: 20px !important;
+    }
+    .cintilla-table { width: 100% !important; border: 1px solid #000 !important; border-collapse: collapse !important; }
+    .cintilla-table td { border: 1px solid #000 !important; padding: 2px !important; }
+
+    /* Corrección Logos */
+    .col-logos { width: 22% !important; text-align: center !important; padding: 2px !important; }
+    .logos-container { display: block !important; text-align: center !important; white-space: nowrap !important; }
+    .logo-img {
+        display: inline-block !important; width: auto !important; height: auto !important;
+        max-height: 45px !important; max-width: 45% !important;
+        margin: 0 2px !important; vertical-align: middle !important; position: static !important;
+    }
+
+    /* --- INPUTS PLANOS --- */
+    .input-clean, .input-line, .textarea-clean {
+        border: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        resize: none !important;
+        font-family: inherit !important;
+        font-size: 11px !important;
+        color: #000 !important;
+        height: auto !important;
+        white-space: pre-wrap !important;
+    }
+
+    .input-line { border-bottom: 1px solid #000 !important; }
+
+    /* --- TABLAS --- */
+    .data-table { border: 1px solid #000 !important; width: 100% !important; border-collapse: collapse !important; }
+    .data-table th, .data-table td { border: 1px solid #000 !important; padding: 3px !important; }
+    .bold-cell, th { background-color: #e0e0e0 !important; font-weight: bold !important; }
+
+    /* --- ETIQUETAS --- */
+    label { font-weight: bold !important; color: #000 !important; }
+}

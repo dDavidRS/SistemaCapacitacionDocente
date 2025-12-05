@@ -1,0 +1,363 @@
+{% extends 'Sistema/layouts/menu_instructor.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <meta charset="UTF-8">
+    <title>Lista de Asistencia</title>
+    <link rel="stylesheet" href="{% static 'Sistema/css/asistencia/asistencia.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="lista-container main-content">
+
+        {# --- BOTÓN DE DESCARGA AUTOMÁTICO (Solo si se finalizó) --- #}
+        {% if download_data %}
+            <div class="alert alert-success text-center shadow-sm web-only" style="border-left: 5px solid #1b396a; margin-bottom: 30px; padding: 20px; background-color: #d1e7dd;">
+                <h4 style="color: #1b396a; margin-top: 0;"><i class="fa-solid fa-circle-check"></i> ¡Lista Finalizada!</h4>
+                <p style="font-size: 14px; color: #0f5132;">La lista se ha cerrado correctamente. Puedes descargar la versión firmada aquí:</p>
+
+                <a href="{% url 'descargar_pdf' download_data.tipo download_data.pk %}"
+                   class="btn"
+                   style="background-color: #1b396a; color: white; border-radius: 50px; padding: 10px 30px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px;">
+                    <i class="fa-solid fa-file-pdf me-2"></i> Descargar PDF
+                </a>
+            </div>
+        {% endif %}
+
+        {# --- MENSAJES DE ERROR O ÉXITO DEL SERVIDOR --- #}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} text-center mb-4" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% if form.errors %}
+            <div style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 20px; border: 1px solid #f5c6cb; border-radius: 5px;">
+                <strong>Por favor revisa los siguientes errores:</strong>
+                <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ field.label }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <form method="POST" class="lista-form-body">
+            {% csrf_token %}
+
+            {# --- CINTILLA ESTANDARIZADA --- #}
+            <header class="document-header-print">
+                <table class="cintilla-table">
+                    <tr>
+                        <td class="col-logos">
+                            <div class="logos-container">
+                                <img src="{% static 'Sistema/img/LogoTecnmChiquis.png' %}" alt="TecNM" class="logo-img logo-tecnm">
+                                <img src="{% static 'Sistema/img/LogoItrNoFondo.png' %}" alt="Tec Reynosa" class="logo-img logo-tec">
+                            </div>
+                        </td>
+                        <td class="col-center">
+                            <div class="center-content">
+                                <h1 class="cintilla-main-title">LISTA DE ASISTENCIA</h1>
+                                <div class="cintilla-norma">Referencia a la Norma: ISO 9001:2015 7.2 7.3</div>
+                            </div>
+                        </td>
+                        <td class="col-meta">
+                            <div class="meta-row"><strong>Código:</strong> ITR-AC-F54</div>
+                            <div class="meta-row"><strong>Revisión:</strong> 4</div>
+                            <div class="meta-row"><strong>Fecha de Emisión:</strong><br>septiembre de 2022</div>
+                            <div class="meta-row"><strong>Página:</strong> 1 de 3</div>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            {# --- DATOS DEL ENCABEZADO SUPERIOR --- #}
+            <section class="info-block">
+                <div class="header-title-row">
+                    <h3 class="lista-title">LISTA DE ASISTENCIA</h3>
+                    <div class="hoja-info">
+                        Hoja <input type="text" name="hoja_actual" class="input-line short" value="{{ form.hoja_actual.value|default:'1' }}">
+                        de <input type="text" name="hoja_total" class="input-line short" value="{{ form.hoja_total.value|default:'1' }}">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label>INSTITUTO TECNOLÓGICO O CENTRO DE TRABAJO:</label>
+                    <input type="text" name="instituto" class="input-line full-width" value="{{ form.instituto.value|default:'REYNOSA' }}">
+                </div>
+
+                <div class="form-row split-row">
+                    <div class="field-group flex-grow">
+                        <label>CLAVE DEL CURSO:</label>
+                        <input type="text" name="clave_curso" class="input-line center-text" placeholder="(2)" value="{{ form.clave_curso.value|default:'' }}">
+                    </div>
+                    <div class="field-group">
+                        <label>FOLIO:</label>
+                        <input type="text" name="folio" class="input-line medium" placeholder="(3)" value="{{ form.folio.value|default:'' }}">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label>NOMBRE DEL CURSO:</label>
+                    <input type="text" name="nombre_curso" class="input-line full-width" placeholder="(4)" value="{{ form.nombre_curso.value|default:'' }}">
+                </div>
+
+                <div class="form-row">
+                    <label>NOMBRE DEL INSTRUCTOR (ES):</label>
+                    <input type="text" name="instructor" class="input-line full-width" placeholder="(5)" value="{{ form.instructor.value|default:'' }}">
+                </div>
+
+                <div class="form-row split-row">
+                    <div class="field-group flex-grow">
+                        <label>PERIODO:</label>
+                        <input type="text" name="periodo" class="input-line center-text" placeholder="(6)" value="{{ form.periodo.value|default:'' }}">
+                    </div>
+                    <div class="field-group">
+                        <label>DURACIÓN:</label>
+                        <input type="text" name="duracion" class="input-line medium" placeholder="(7)" value="{{ form.duracion.value|default:'' }}">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label>HORARIO:</label>
+                    <input type="text" name="horario" class="input-line full-width" placeholder="(8)" value="{{ form.horario.value|default:'' }}">
+                </div>
+            </section>
+
+            {# --- TABLA DE ASISTENCIA (DINÁMICA) --- #}
+            <section class="form-section">
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr class="header-gray">
+                                <th rowspan="2" width="3%">No. (9)</th>
+                                <th rowspan="2" width="25%">NOMBRE DEL PARTICIPANTE (10)<br><span class="tiny-text">APELLIDO PATERNO, MATERNO, NOMBRE(S)</span></th>
+                                <th rowspan="2" width="10%">R.F.C. (11)</th>
+                                <th rowspan="2" width="20%">PUESTO Y ÁREA DE ADSCRIPCIÓN (12)</th>
+                                <th rowspan="2" width="5%">SEXO<br>H/M (13)</th>
+                                <th colspan="5" width="15%">ASISTENCIA (14)</th>
+                                <th rowspan="2" width="10%">CONCLUYÓ CURSO SI/NO<br>(15)</th>
+                            </tr>
+                            <tr class="header-gray sub-header">
+                                <th width="3%">L</th>
+                                <th width="3%">M</th>
+                                <th width="3%">M</th>
+                                <th width="3%">J</th>
+                                <th width="3%">V</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {# Aquí iteramos sobre la lista preparada en la vista #}
+                            {# 'tabla_participantes' siempre trae 23 filas, algunas con datos y otras vacías #}
+                            {% for fila in tabla_participantes %}
+                            <tr>
+                                <td class="center-text">{{ fila.counter }}</td>
+
+                                {# NOMBRE #}
+                                <td><input type="text" name="nombre_{{fila.counter}}" class="input-clean" value="{{ fila.nombre }}"></td>
+
+                                {# RFC #}
+                                <td><input type="text" name="rfc_{{fila.counter}}" class="input-clean center-text" value="{{ fila.rfc }}"></td>
+
+                                {# PUESTO #}
+                                <td><input type="text" name="puesto_{{fila.counter}}" class="input-clean" value="{{ fila.puesto }}"></td>
+
+                                {# SEXO #}
+                                <td><input type="text" name="sexo_{{fila.counter}}" class="input-clean center-text" maxlength="1" value="{{ fila.sexo }}"></td>
+
+                                {# ASISTENCIAS #}
+                                <td class="gray-col"><input type="text" name="asist_l_{{fila.counter}}" class="input-clean center-text" value="{{ fila.asist_l }}"></td>
+                                <td class="gray-col"><input type="text" name="asist_m1_{{fila.counter}}" class="input-clean center-text" value="{{ fila.asist_m1 }}"></td>
+                                <td class="gray-col"><input type="text" name="asist_m2_{{fila.counter}}" class="input-clean center-text" value="{{ fila.asist_m2 }}"></td>
+                                <td class="gray-col"><input type="text" name="asist_j_{{fila.counter}}" class="input-clean center-text" value="{{ fila.asist_j }}"></td>
+                                <td class="gray-col"><input type="text" name="asist_v_{{fila.counter}}" class="input-clean center-text" value="{{ fila.asist_v }}"></td>
+
+                                {# CONCLUYÓ #}
+                                <td><input type="text" name="concluyo_{{fila.counter}}" class="input-clean center-text" value="{{ fila.concluyo }}"></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="legend-row">
+                    <span>H= Hombre</span>
+                    <span style="margin-left: 20px;">M=Mujer</span>
+                </div>
+            </section>
+
+            {# --- PIE DE PÁGINA (FIRMAS) --- #}
+            <section class="footer-signatures mt-40">
+                <div class="sig-column">
+                    <div class="sig-title-top">(16)</div>
+                    <div class="sig-line"></div>
+                    <div class="sig-label">NOMBRE Y FIRMA DEL INSTRUCTOR</div>
+
+                    <div class="extra-field">
+                        <label>RFC: (17)</label>
+                        <input type="text" name="instructor_rfc" class="input-line-small" value="{{ form.instructor_rfc.value|default:'' }}">
+                    </div>
+                    <div class="extra-field">
+                        <label>CURP: (18)</label>
+                        <input type="text" name="instructor_curp" class="input-line-small" value="{{ form.instructor_curp.value|default:'' }}">
+                    </div>
+                </div>
+
+                <div class="sig-column">
+                    <div class="sig-title-top">(19)</div>
+                    <div class="sig-line"></div>
+                    <div class="sig-label">NOMBRE Y FIRMA DEL COORDINADOR</div>
+
+                    <div class="extra-field">
+                        <label>RFC: (20)</label>
+                        <input type="text" name="coordinador_rfc" class="input-line-small" value="{{ form.coordinador_rfc.value|default:'' }}">
+                    </div>
+                    <div class="extra-field">
+                        <label>CURP: (21)</label>
+                        <input type="text" name="coordinador_curp" class="input-line-small" value="{{ form.coordinador_curp.value|default:'' }}">
+                    </div>
+                </div>
+            </section>
+
+            {# --- BOTONES DE ACCIÓN (NUEVO) --- #}
+            <div class="form-submit-row web-only" style="display: flex; gap: 20px; justify-content: center; margin-bottom: 50px;">
+
+                <button type="submit" name="btn_borrador" class="btn btn-secondary" style="background-color: #6c757d; border: none; padding: 12px 25px; border-radius: 5px;">
+                    <i class="fa-solid fa-floppy-disk me-2"></i> Guardar Progreso
+                </button>
+
+                <button type="submit" name="btn_finalizar" class="btn btn-primary" onclick="return confirm('¿Estás seguro de finalizar la lista? Ya no podrás editarla después.');" style="background-color: #1b396a; border: none; padding: 12px 25px; border-radius: 5px;">
+                    <i class="fa-solid fa-paper-plane me-2"></i> Finalizar y Enviar
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    // ==========================================
+    // 1. AUTOCOMPLETADO DE CURSO (Encabezado)
+    // ==========================================
+    const inputClave = document.querySelector('input[name="clave_curso"]');
+
+    if(inputClave){
+        inputClave.addEventListener('change', function() {
+            const clave = this.value;
+            if(clave.length > 0){
+                fetch(`/api/buscar-curso/?clave=${clave}`)
+                .then(response => response.json())
+                .then(data => {
+                    if(data.found) {
+                        // Llenar campos del encabezado
+                        const campoNombre = document.querySelector('input[name="nombre_curso"]');
+                        const campoInstructor = document.querySelector('input[name="instructor"]');
+                        const campoPeriodo = document.querySelector('input[name="periodo"]');
+
+                        if(campoNombre) campoNombre.value = data.nombre;
+                        if(campoInstructor) campoInstructor.value = data.instructor;
+                        if(campoPeriodo) campoPeriodo.value = data.periodo;
+
+                        // Feedback visual
+                        this.style.borderColor = "#198754";
+                    } else {
+                        this.style.borderColor = "#dc3545";
+                        alert("Curso no encontrado con esa clave.");
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        });
+    }
+
+    // ==========================================
+    // 2. AUTOCOMPLETADO DE FIRMAS (Pie de página)
+    // ==========================================
+
+    // Función genérica para buscar profesor por RFC/CURP y llenar otro campo
+    function autocompletarFirma(inputBusqueda, inputDestino) {
+        if(!inputBusqueda || !inputDestino) return;
+
+        inputBusqueda.addEventListener('change', function() {
+            const valor = this.value;
+            if(valor.length > 8) { // Mínimo de caracteres para buscar
+                fetch(`/api/buscar-profesor/?q=${valor}`)
+                .then(response => response.json())
+                .then(data => {
+                    if(data.found) {
+                        // Si buscamos por RFC, llenamos CURP. Si buscamos por CURP, llenamos RFC.
+                        // La API devuelve ambos, así que simplemente asignamos el que corresponda al destino.
+                        if(inputDestino.name.includes('curp')) inputDestino.value = data.curp;
+                        if(inputDestino.name.includes('rfc')) inputDestino.value = data.rfc;
+
+                        this.style.borderColor = "#198754";
+                    }
+                });
+            }
+        });
+    }
+
+    // Configurar autocompletado para Instructor (Firma)
+    autocompletarFirma(
+        document.querySelector('input[name="instructor_rfc"]'),
+        document.querySelector('input[name="instructor_curp"]')
+    );
+    autocompletarFirma(
+        document.querySelector('input[name="instructor_curp"]'),
+        document.querySelector('input[name="instructor_rfc"]')
+    );
+
+    // Configurar autocompletado para Coordinador (Firma)
+    autocompletarFirma(
+        document.querySelector('input[name="coordinador_rfc"]'),
+        document.querySelector('input[name="coordinador_curp"]')
+    );
+    autocompletarFirma(
+        document.querySelector('input[name="coordinador_curp"]'),
+        document.querySelector('input[name="coordinador_rfc"]')
+    );
+
+
+    // ==========================================
+    // 3. AUTOCOMPLETADO DE PARTICIPANTES (Tabla)
+    // ==========================================
+
+    // Iteramos sobre las 23 filas posibles
+    for (let i = 1; i <= 23; i++) {
+        const inputRFC = document.querySelector(`input[name="rfc_${i}"]`);
+
+        if (inputRFC) {
+            inputRFC.addEventListener('change', function() {
+                const rfc = this.value;
+                if (rfc.length > 3) {
+                    fetch(`/api/buscar-profesor/?q=${rfc}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.found) {
+                            // Llenar Nombre
+                            const inputNombre = document.querySelector(`input[name="nombre_${i}"]`);
+                            if(inputNombre) inputNombre.value = data.nombre_completo;
+
+                            // Llenar Puesto (Usamos el departamento o área como puesto por defecto)
+                            const inputPuesto = document.querySelector(`input[name="puesto_${i}"]`);
+                            if(inputPuesto && data.area) inputPuesto.value = data.area;
+
+                            // Nota: El sexo no está en el modelo Profesor actual,
+                            // por lo que no se autocompleta.
+
+                            this.style.borderColor = "#198754";
+                        }
+                    });
+                }
+            });
+        }
+    }
+
+});
+</script>
+{% endblock %}

@@ -1,0 +1,203 @@
+/* =================================================================== */
+/* ESTILOS PARA PANTALLA (WEB)                                         */
+/* =================================================================== */
+.main-content {
+    margin-top: 150px; /* Ajusta a tu menú */
+    padding: 20px 5%;
+    font-family: Arial, sans-serif;
+}
+
+/* Ocultamos la tabla de impresión en la web si se ve fea, o le damos estilo básico */
+.ficha-header-print {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.cintilla-table { width: 100%; border-collapse: collapse; }
+.cintilla-table td { border: 1px solid #ccc; padding: 5px; vertical-align: middle; }
+.logo-img { max-width: 80px; height: auto; }
+.logos-container { display: flex; gap: 10px; justify-content: center; }
+
+/* Estilos del formulario web */
+.inscripcion-form-body {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; font-weight: bold; font-size: 0.9em; margin-bottom: 5px; }
+.form-group input, .form-group textarea {
+    width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;
+}
+.form-group-list { padding-left: 20px; }
+.signature-row { display: flex; justify-content: space-between; margin-top: 40px; }
+.firma-box, .sello-box { width: 30%; text-align: center; }
+.firma-linea { display: block; border-top: 1px solid #000; margin-bottom: 5px; }
+.web-only { text-align: right; margin-top: 20px; }
+.web-only button { padding: 10px 20px; background: #004a99; color: #fff; border: none; cursor: pointer; }
+
+
+/* =================================================================== */
+/* ESTILOS DE IMPRESIÓN (LO IMPORTANTE)                                */
+/* =================================================================== */
+/* =================================================================== */
+/* ESTILOS DE IMPRESIÓN (VERSIÓN IDÉNTICA - SIN CUADROS EXTRA)         */
+/* =================================================================== */
+/* =================================================================== */
+/* ESTILOS PARA PANTALLA (WEB)                                         */
+/* =================================================================== */
+.main-content {
+    margin-top: 150px; /* Ajusta a tu menú */
+    padding: 20px 5%;
+    font-family: Arial, sans-serif;
+}
+
+/* Ocultamos la tabla de impresión en la web si se ve fea, o le damos estilo básico */
+.ficha-header-print {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.cintilla-table { width: 100%; border-collapse: collapse; }
+.cintilla-table td { border: 1px solid #ccc; padding: 5px; vertical-align: middle; }
+.logo-img { max-width: 80px; height: auto; }
+.logos-container { display: flex; gap: 10px; justify-content: center; }
+
+/* Estilos del formulario web */
+.inscripcion-form-body {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; font-weight: bold; font-size: 0.9em; margin-bottom: 5px; }
+.form-group input, .form-group textarea {
+    width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;
+}
+.form-group-list { padding-left: 20px; }
+.signature-row { display: flex; justify-content: space-between; margin-top: 40px; }
+.firma-box, .sello-box { width: 30%; text-align: center; }
+.firma-linea { display: block; border-top: 1px solid #000; margin-bottom: 5px; }
+.web-only { text-align: right; margin-top: 20px; }
+.web-only button { padding: 10px 20px; background: #004a99; color: #fff; border: none; cursor: pointer; }
+
+
+/* =================================================================== */
+/* ESTILOS DE IMPRESIÓN (LO IMPORTANTE)                                */
+/* =================================================================== */
+@media print {
+    @page {
+        size: letter portrait;
+        margin: 1.5cm 1cm 1cm 1cm;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    body {
+        margin: 0; padding-top: 10px !important;
+        font-family: Arial, sans-serif !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+    }
+
+    /* OCULTAR ELEMENTOS WEB */
+    .Contenedor__Navbar, .web-only { display: none !important; }
+    .main-content { margin: 0 !important; padding: 0 !important; width: 100% !important; }
+    .inscripcion-form-body { border: none !important; box-shadow: none !important; padding: 0 !important; }
+
+    /* --- CINTILLA Y LOGOS (ARREGLADO) --- */
+    .ficha-header-print {
+        margin-bottom: 15px !important;
+        display: block !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+
+    .cintilla-table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        border: 1px solid #000 !important;
+    }
+
+    /* Reglas específicas para logos en PDF */
+    .col-logos {
+        width: 22% !important;
+        text-align: center !important;
+        padding: 2px !important;
+        vertical-align: middle !important;
+    }
+    .logos-container {
+        display: block !important; /* Adiós flex */
+        text-align: center !important;
+        white-space: nowrap !important;
+    }
+    .logo-img {
+        display: inline-block !important;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain !important;
+        max-height: 45px !important;
+        max-width: 45% !important; /* Para que quepan ambos */
+        margin: 0 2px !important;
+        position: static !important;
+    }
+
+    .col-title { width: 53% !important; text-align: center !important; background-color: #fff !important; }
+    .cintilla-main-title { font-size: 10pt !important; font-weight: bold !important; margin: 0 !important; text-transform: uppercase !important; }
+    .col-norma { text-align: center !important; font-size: 7pt !important; border-top: 1px solid #000 !important; }
+    .col-meta { width: 25% !important; font-size: 7pt !important; vertical-align: top !important; }
+    .meta-row { margin-bottom: 2px !important; }
+    .col-page { font-size: 7pt !important; vertical-align: top !important; }
+
+    /* --- TÍTULOS SECUNDARIOS --- */
+    .ficha-instituto-name {
+        text-align: center !important; font-size: 11pt !important; font-weight: bold !important; margin: 5px 0 0 0 !important; color: #000 !important;
+    }
+    .ficha-title-secondary {
+        text-align: center !important; font-size: 10pt !important; font-weight: bold !important; margin: 0 0 15px 0 !important; color: #000 !important; text-transform: uppercase !important;
+    }
+
+    /* --- CAMPOS Y ETIQUETAS --- */
+    .form-group input, .form-group textarea {
+        display: block !important;
+        border: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        resize: none !important;
+        font-family: Arial, sans-serif !important;
+        font-size: 10pt !important;
+        color: #000 !important;
+        white-space: pre-wrap;
+        overflow: visible;
+        min-height: 1em;
+    }
+
+    .form-group {
+        border: none !important;
+        margin-bottom: 10px !important;
+        padding: 0 !important;
+    }
+
+    .form-group label {
+        font-weight: bold !important;
+        color: #000 !important;
+        margin: 0 !important;
+        font-size: 10pt !important;
+        display: block !important;
+        margin-bottom: 2px !important;
+    }
+
+    .form-group-list { padding-left: 20px !important; margin-top: 5px !important; }
+    .form-group-list .form-group { margin-bottom: 5px !important; }
+
+    /* --- FIRMAS --- */
+    .signature-section { margin-top: 25px !important; }
+    .signature-row { display: flex !important; justify-content: space-between !important; gap: 10px !important; }
+    .firma-box, .sello-box { border: none !important; width: 32% !important; text-align: center !important; }
+    .firma-linea { display: block !important; border-top: 1px solid #000 !important; margin-top: 25px !important; margin-bottom: 2px !important; width: 100% !important; }
+    .sello-box { padding-top: 25px !important; }
+    .firma-box label, .sello-box label { font-size: 8pt !important; text-align: center !important; display: block !important; margin-top: 2px !important; font-weight: normal !important; }
+}

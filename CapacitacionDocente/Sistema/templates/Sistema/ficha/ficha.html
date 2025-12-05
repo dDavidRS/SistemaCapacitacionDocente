@@ -1,0 +1,178 @@
+{% extends 'Sistema/layouts/menu_instructor.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <meta charset="UTF-8">
+    <title>Ficha Técnica</title>
+    {# Asegúrate de usar el nombre correcto de tu CSS #}
+    <link rel="stylesheet" href="{% static 'Sistema/css/ficha/ficha.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="formulario main-content">
+
+        {# --- 1. BOTÓN DE DESCARGA AUTOMÁTICO (MOVIDO AL INICIO) --- #}
+        {% if download_data %}
+            <div class="alert alert-success text-center shadow-sm web-only" style="border-left: 5px solid #1b396a; margin-bottom: 30px; padding: 20px; background-color: #d1e7dd;">
+                <h4 style="color: #1b396a; margin-top: 0;"><i class="fa-solid fa-circle-check"></i> ¡Guardado Exitosamente!</h4>
+                <p style="font-size: 14px; color: #0f5132;">Tu formato se ha registrado. Puedes descargar la versión firmada aquí:</p>
+
+                <a href="{% url 'descargar_pdf' download_data.tipo download_data.pk %}"
+                   class="btn"
+                   style="background-color: #1b396a; color: white; border-radius: 50px; padding: 10px 30px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px;">
+                    <i class="fa-solid fa-file-pdf me-2"></i> Descargar PDF
+                </a>
+            </div>
+        {% endif %}
+
+        {# --- MENSAJES DE ERROR --- #}
+        {% if form.errors %}
+            <div style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 20px; border: 1px solid #f5c6cb; border-radius: 5px;">
+                <strong>No se pudo guardar la Ficha. Por favor revisa lo siguiente:</strong>
+                <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ field.label }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        {# --- CINTILLA (ENCABEZADO TIPO TABLA) --- #}
+        <header class="ficha-header-print">
+            <table class="cintilla-table">
+                <tr>
+                    <td class="col-logos" rowspan="2">
+                        <div class="logos-container">
+                            <img src="{% static 'Sistema/img/logo_tecnm.png' %}" alt="TecNM" class="logo-img logo-tecnm">
+                            <img src="{% static 'Sistema/img/logo_tecreynosa.png' %}" alt="Tec Reynosa" class="logo-img logo-tec">
+                        </div>
+                    </td>
+                    <td class="col-title">
+                        <h1 class="cintilla-main-title">FICHA TÉCNICA DEL SERVICIO DE FORMACIÓN DOCENTE Y ACTUALIZACIÓN PROFESIONAL</h1>
+                    </td>
+                    <td class="col-meta">
+                        <div class="meta-row"><strong>Código:</strong> ITR-AC-F60</div>
+                        <div class="meta-row"><strong>Versión:</strong> 4</div>
+                        <div class="meta-row"><strong>Fecha de Emisión:</strong><br>septiembre de 2022</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-norma">
+                        Referencia a la Norma: ISO 9001:2015 7.2 7.3
+                    </td>
+                    <td class="col-page">
+                        Página: 1 de 1
+                    </td>
+                </tr>
+            </table>
+        </header>
+
+        {# --- CUERPO DEL DOCUMENTO --- #}
+        <form method="POST" class="inscripcion-form-body">
+            {% csrf_token %}
+
+            {# Títulos secundarios centrados #}
+            <h2 class="ficha-instituto-name">INSTITUTO TECNOLÓGICO DE REYNOSA</h2>
+            <h3 class="ficha-title-secondary">FICHA TÉCNICA DEL SERVICIO DE FORMACIÓN Y ACTUALIZACIÓN DOCENTE Y PROFESIONAL</h3>
+
+            <section class="form-section">
+
+                {# Campos Generales #}
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre del Curso: (1)</label>
+                        <input type="text" name="nombre_curso" value="{{ form.nombre_curso.value|default:'' }}" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Instructor: (2)</label>
+                        <input type="text" name="instructor" value="{{ form.instructor.value|default:'' }}" required>
+                    </div>
+                </div>
+
+                {# Campos de área de texto #}
+                <div class="form-row">
+                    <div class="form-group textarea-group">
+                        <label>1) Introducción: (3)</label>
+                        <textarea name="introduccion" required>{{ form.introduccion.value|default:'' }}</textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group textarea-group">
+                        <label>2) Justificación: (4)</label>
+                        <textarea name="justificacion" required>{{ form.justificacion.value|default:'' }}</textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group textarea-group">
+                        <label>3) Objetivo General: (5)</label>
+                        <textarea name="objetivo_general" required>{{ form.objetivo_general.value|default:'' }}</textarea>
+                    </div>
+                </div>
+
+                {# Sección 4: Descripción (Lista a, b, c, d) #}
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>4) Descripción del curso: (6)</label>
+                        <div class="form-group-list">
+                            <div class="form-group sub-item">
+                                <label>a. Duración en horas del curso (7)</label>
+                                <input type="text" name="desc_duracion" value="{{ form.desc_duracion.value|default:'' }}" required>
+                            </div>
+                            <div class="form-group sub-item">
+                                <label>b. Contenido Temático del curso (8)</label>
+                                <input type="text" name="desc_contenido" value="{{ form.desc_contenido.value|default:'' }}" required>
+                            </div>
+                            <div class="form-group sub-item">
+                                <label>c. Materiales didácticos del curso (9)</label>
+                                <input type="text" name="desc_materiales" value="{{ form.desc_materiales.value|default:'' }}" required>
+                            </div>
+                            <div class="form-group sub-item">
+                                <label>d. Criterio de evaluación (10)</label>
+                                <input type="text" name="desc_criterios" value="{{ form.desc_criterios.value|default:'' }}" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group textarea-group">
+                        <label>5) Resultados: (11)</label>
+                        <textarea name="resultados" required>{{ form.resultados.value|default:'' }}</textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group textarea-group">
+                        <label>6) Fuentes de Información: (12)</label>
+                        <textarea name="fuentes_informacion" required>{{ form.fuentes_informacion.value|default:'' }}</textarea>
+                    </div>
+                </div>
+            </section>
+
+            {# Sección de Firmas (3 columnas) #}
+            <section class="form-section signature-section">
+                <div class="form-row signature-row">
+                    <div class="form-group firma-box">
+                        <span class="firma-linea"></span>
+                        <label>Nombre y firma del (la) Instructor (a) (13)</label>
+                    </div>
+                    <div class="form-group sello-box">
+                        <label>Sello (15)</label>
+                    </div>
+                    <div class="form-group firma-box">
+                        <span class="firma-linea"></span>
+                        <label>Nombre y firma del Jefe(a) de Desarrollo Académico. (14)</label>
+                    </div>
+                </div>
+            </section>
+
+            {# Botón (se oculta al imprimir) #}
+            <div class="form-submit-row web-only">
+                <button type="submit">Guardar Ficha</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}

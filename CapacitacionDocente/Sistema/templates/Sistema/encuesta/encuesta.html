@@ -1,0 +1,352 @@
+{% extends 'Sistema/layouts/menu.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <meta charset="UTF-8">
+    <title>Encuesta de Opinión</title>
+    <link rel="stylesheet" href="{% static 'Sistema/css/encuesta/encuesta.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="formulario main-content">
+
+        {# --- 1. BOTÓN DE DESCARGA AUTOMÁTICO --- #}
+        {% if download_data %}
+            <div class="alert alert-success text-center shadow-sm web-only" style="border-left: 5px solid #1b396a; margin-bottom: 30px; padding: 20px; background-color: #d1e7dd;">
+                <h4 style="color: #1b396a; margin-top: 0;"><i class="fa-solid fa-circle-check"></i> ¡Guardado Exitosamente!</h4>
+                <p style="font-size: 14px; color: #0f5132;">Tu encuesta ha sido registrada. Puedes descargar la versión firmada aquí:</p>
+
+                <a href="{% url 'descargar_pdf' download_data.tipo download_data.pk %}"
+                   class="btn"
+                   style="background-color: #1b396a; color: white; border-radius: 50px; padding: 10px 30px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px;">
+                    <i class="fa-solid fa-file-pdf me-2"></i> Descargar PDF
+                </a>
+            </div>
+        {% endif %}
+
+        {# --- CINTILLA --- #}
+        <header class="encuesta-header-print">
+            <table class="cintilla-table">
+                <tr>
+                    <td class="col-logos">
+                        <div class="logos-container">
+                            <img src="{% static 'Sistema/img/logo_tecnm.png' %}" alt="TecNM" class="logo-img logo-tecnm">
+                            <img src="{% static 'Sistema/img/logo_tecreynosa.png' %}" alt="Tec Reynosa" class="logo-img logo-tec">
+                        </div>
+                    </td>
+                    <td class="col-center">
+                        <div class="center-content">
+                            <h1 class="cintilla-main-title">ENCUESTA DE OPINIÓN</h1>
+                            <div class="cintilla-norma">Referencia a la Norma: ISO 9001:2015 7.2 7.3</div>
+                        </div>
+                    </td>
+                    <td class="col-meta">
+                        <div class="meta-row"><strong>Código:</strong> ITR-AC-F57</div>
+                        <div class="meta-row"><strong>Revisión:</strong> 4</div>
+                        <div class="meta-row"><strong>Fecha de Emisión:</strong><br>septiembre de 2022</div>
+                        <div class="meta-row"><strong>Página:</strong> 1 de 1</div>
+                    </td>
+                </tr>
+            </table>
+        </header>
+
+        {# --- MENSAJES DE ERROR --- #}
+        {% if form.errors %}
+            <div style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 20px; border: 1px solid #f5c6cb; border-radius: 5px;">
+                <strong>No se pudo enviar la encuesta. Revisa lo siguiente:</strong>
+                <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ field.label }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <form method="POST" class="inscripcion-form-body">
+            {% csrf_token %}
+
+            <div class="titles-container">
+                <h2 class="ficha-instituto-name">INSTITUTO TECNOLÓGICO DE REYNOSA</h2>
+                <h3 class="ficha-title-secondary">ENCUESTA DE OPINIÓN</h3>
+            </div>
+
+            {# SECCIÓN 1: DATOS GENERALES #}
+            <section class="form-section general-data-section">
+                <table class="general-data-table">
+                    <tr>
+                        <td class="gd-col-left">
+                            <div class="gd-group">
+                                <label>Nombre del Curso:</label>
+                                <input type="text" name="nombre_curso" value="{{ form.nombre_curso.value|default:'' }}" required>
+                            </div>
+                        </td>
+                        <td class="gd-col-right">
+                            <div class="gd-group">
+                                <label>Fecha de realización:</label>
+                                <input type="date" name="fecha" class="input-line short-input" value="{{ form.fecha.value|date:'Y-m-d'|default:'' }}" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="gd-col-left">
+                            <div class="gd-group">
+                                <label>Clave del Curso:</label>
+                                <input type="text" name="clave" value="{{ form.clave.value|default:'' }}" required>
+                            </div>
+                        </td>
+                        <td class="gd-col-right">
+                            <div class="gd-group">
+                                <label>Duración:</label>
+                                <input type="text" name="duracion" value="{{ form.duracion.value|default:'' }}" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="gd-group">
+                                <label>Nombre de Institución:</label>
+                                <input type="text" name="institucion" value="{{ form.institucion.value|default:'' }}" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="gd-group">
+                                <label>Nombre del Facilitador:</label>
+                                <input type="text" name="facilitador" value="{{ form.facilitador.value|default:'' }}" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="gd-col-left">
+                            <div class="gd-group">
+                                <label>Periodo de realización:</label>
+                                <input type="text" name="periodo" value="{{ form.periodo.value|default:'' }}" required>
+                            </div>
+                        </td>
+                        <td class="gd-col-right">
+                            <div class="gd-group">
+                                <label>Horario:</label>
+                                <input type="text" name="horario" value="{{ form.horario.value|default:'' }}" required>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+            {# SECCIÓN 2: INSTRUCCIONES Y ESCALA #}
+            <section class="form-section instructions-area">
+                <p>La presente encuesta tiene como finalidad conocer su opinión sobre el curso de capacitación en el que participó, las respuestas nos servirán para mejorarlo.</p>
+                <p><strong>INSTRUCCIÓN:</strong> Solicitamos exprese su opinión sobre los siguientes aspectos escribiendo el número correspondiente en el recuadro de la derecha según la siguiente escala:</p>
+
+                <div class="scale-legend-visual">
+                    <div class="scale-block"><div class="sb-num">5</div> <div class="sb-text">Totalmente de<br>acuerdo</div></div>
+                    <div class="scale-block"><div class="sb-num">4</div> <div class="sb-text">Parcialmente de<br>acuerdo</div></div>
+                    <div class="scale-block"><div class="sb-num">3</div> <div class="sb-text">Indiferente</div></div>
+                    <div class="scale-block"><div class="sb-num">2</div> <div class="sb-text">Parcialmente<br>en desacuerdo</div></div>
+                    <div class="scale-block"><div class="sb-num">1</div> <div class="sb-text">En desacuerdo</div></div>
+                </div>
+            </section>
+
+            {# SECCIÓN 3: ENCUESTA (Preguntas q1 - q20) #}
+            {# Usamos un bucle for interno para reducir código repetitivo, pero aquí lo pongo explícito para q1-q20 con la lógica 'checked' #}
+
+            <div class="survey-columns-container">
+
+                <div class="survey-col-left">
+                    <table class="mini-table">
+                        <thead><tr><th class="header-gray header-title">INSTRUCTOR</th><th class="header-score">Calif.</th></tr></thead>
+                        <tbody>
+                            <tr><td class="q-text">1. Expuso el objetivo y temario del curso.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q1" value="{{ val }}" required {% if form.q1.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">2. Mostró dominio del contenido abordado.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q2" value="{{ val }}" required {% if form.q2.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">3. Fomentó la participación del grupo.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q3" value="{{ val }}" required {% if form.q3.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">4. Aclaró las dudas que se presentaron.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q4" value="{{ val }}" required {% if form.q4.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">5. Dio retroalimentación a los ejercicios realizados.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q5" value="{{ val }}" required {% if form.q5.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">6. Aplicó una evaluación final relacionada con los contenidos del curso.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q6" value="{{ val }}" required {% if form.q6.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">7. Inició y concluyó puntualmente las sesiones.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q7" value="{{ val }}" required {% if form.q7.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                        </tbody>
+                    </table>
+
+                    <table class="mini-table mt-15">
+                        <thead><tr><th class="header-gray header-title">MATERIAL DIDÁCTICO</th><th class="header-score">Calif.</th></tr></thead>
+                        <tbody>
+                            <tr><td class="q-text">8. El material didáctico fue útil a lo largo del curso.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q8" value="{{ val }}" required {% if form.q8.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">9. La impresión del material didáctico fue legible.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q9" value="{{ val }}" required {% if form.q9.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">10. La variedad del material didáctico fue suficiente para apoyar su aprendizaje.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q10" value="{{ val }}" required {% if form.q10.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="survey-col-right">
+                    <table class="mini-table">
+                        <thead><tr><th class="header-gray header-title">CURSO</th><th class="header-score">Calif.</th></tr></thead>
+                        <tbody>
+                            <tr><td class="q-text">11. La distribución del tiempo fue adecuada para cubrir el contenido.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q11" value="{{ val }}" required {% if form.q11.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">12. Los temas fueron suficientes para alcanzar el objetivo del curso.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q12" value="{{ val }}" required {% if form.q12.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">13. El curso comprendió ejercicios de práctica relacionados con el contenido.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q13" value="{{ val }}" required {% if form.q13.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">14. El curso cubrió sus expectativas.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q14" value="{{ val }}" required {% if form.q14.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                        </tbody>
+                    </table>
+
+                    <table class="mini-table mt-15">
+                        <thead><tr><th class="header-gray header-title">INFRAESTRUCTURA</th><th class="header-score">Calif.</th></tr></thead>
+                        <tbody>
+                            <tr><td class="q-text">15. La iluminación del aula fue adecuada.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q15" value="{{ val }}" required {% if form.q15.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">16. La ventilación del aula fue adecuada.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q16" value="{{ val }}" required {% if form.q16.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">17. El aseo del aula fue adecuada.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q17" value="{{ val }}" required {% if form.q17.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">18. El servicio de los sanitarios fue adecuado (limpieza, abasto de papel, toallas, jabón, etc.).</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q18" value="{{ val }}" required {% if form.q18.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">19. El servicio de café fue adecuado.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q19" value="{{ val }}" required {% if form.q19.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                            <tr><td class="q-text">20. Recibió apoyo del personal que coordinó el curso.</td><td class="q-cell"><div class="radios-web">
+                                {% for val in "54321" %}
+                                <label>{{ val }}<input type="radio" name="q20" value="{{ val }}" required {% if form.q20.value|stringformat:"s" == val %}checked{% endif %}></label>
+                                {% endfor %}
+                            </div></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            {# COMENTARIOS #}
+            <section class="form-section comments-area">
+                <div class="comments-header header-gray">COMENTARIOS O SUGERENCIAS</div>
+                <div class="comments-box">
+                    <textarea name="comentarios" rows="4">{{ form.comentarios.value|default:'' }}</textarea>
+                </div>
+            </section>
+
+            <div class="footer-area">
+                <div class="footer-number">10</div>
+                <div class="footer-thanks">Gracias.</div>
+            </div>
+
+            <div class="form-submit-row web-only">
+                <button type="submit">Enviar Encuesta</button>
+            </div>
+        </form>
+    </section>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Identificamos el campo "Clave"
+    const inputClave = document.querySelector('input[name="clave"]');
+
+    if(inputClave){
+        inputClave.addEventListener('change', function() {
+            const clave = this.value;
+            if(clave.length > 0){
+                // Reutilizamos la misma API que creamos para Inscripción
+                fetch(`/api/buscar-curso/?clave=${clave}`)
+                .then(response => response.json())
+                .then(data => {
+                    if(data.found) {
+                        // 1. Nombre del Curso
+                        const inputNombre = document.querySelector('input[name="nombre_curso"]');
+                        if(inputNombre) inputNombre.value = data.nombre;
+
+                        // 2. Facilitador (En tu modelo Curso es 'instructor', aquí es 'facilitador')
+                        const inputFacilitador = document.querySelector('input[name="facilitador"]');
+                        if(inputFacilitador) inputFacilitador.value = data.instructor;
+
+                        // 3. Periodo
+                        const inputPeriodo = document.querySelector('input[name="periodo"]');
+                        if(inputPeriodo) inputPeriodo.value = data.periodo;
+
+                        // Feedback visual (Borde verde)
+                        this.style.borderColor = "#198754"; // Verde bootstrap
+                    } else {
+                        // Si no existe, avisar y poner borde rojo
+                        this.style.borderColor = "#dc3545"; // Rojo bootstrap
+                        alert("No se encontró ningún curso con la clave: " + clave);
+
+                        // Opcional: Limpiar campos si la clave es errónea
+                        document.querySelector('input[name="nombre_curso"]').value = "";
+                        document.querySelector('input[name="facilitador"]').value = "";
+                        document.querySelector('input[name="periodo"]').value = "";
+                    }
+                })
+                .catch(error => console.error('Error al buscar curso:', error));
+            }
+        });
+    }
+});
+</script>
+{% endblock %}

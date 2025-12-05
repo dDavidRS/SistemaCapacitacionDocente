@@ -1,0 +1,277 @@
+/* =========================================
+   ESTILOS GENERALES
+   ========================================= */
+.criterios-container.main-content {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #000;
+    max-width: 950px;
+    margin: 20px auto;
+    margin-top: 100px;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.mt-20 { margin-top: 20px; }
+.full-width { width: 100%; }
+.center-text { text-align: center; }
+.text-left { text-align: left; }
+.bold-cell { font-weight: bold; }
+
+/* =========================================
+   CINTILLA ESTANDARIZADA
+   ========================================= */
+.document-header-print {
+    margin-bottom: 20px;
+    border: 1px solid #000;
+}
+
+.cintilla-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cintilla-table td {
+    padding: 5px;
+    vertical-align: middle;
+    border-right: 1px solid #000;
+}
+.cintilla-table td:last-child { border-right: none; }
+
+.col-logos { width: 18%; text-align: center; }
+.logos-container { display: flex; justify-content: space-around; align-items: center; }
+.logo-img { max-height: 45px; width: auto; }
+
+.col-center { width: 64%; text-align: center; }
+.cintilla-main-title {
+    font-size: 14px; /* Ajustado para título largo */
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+.cintilla-norma { font-size: 10px; margin-top: 4px; }
+
+.col-meta { width: 18%; font-size: 9px; padding: 0 !important; }
+.meta-row { border-bottom: 1px solid #000; padding: 2px 5px; }
+.meta-row:last-child { border-bottom: none; }
+
+/* =========================================
+   TÍTULOS
+   ========================================= */
+.institute-title {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+}
+.form-subtitle {
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 5px 0 20px 0;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   CAMPOS DE LÍNEA
+   ========================================= */
+.form-row { margin-bottom: 10px; display: flex; align-items: flex-end; }
+.form-row label { font-weight: bold; margin-right: 10px; white-space: nowrap; }
+
+.input-line {
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    outline: none;
+    padding: 2px 5px;
+    font-family: inherit;
+    font-size: 11px;
+    flex-grow: 1;
+}
+.input-line:focus { border-bottom: 2px solid #004a99; }
+
+/* =========================================
+   TABLA DE CRITERIOS
+   ========================================= */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000;
+}
+.data-table th, .data-table td {
+    border: 1px solid #000;
+    padding: 8px 5px;
+    vertical-align: middle;
+}
+.data-table th {
+    background-color: #e0e0e0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+}
+.data-table tfoot td { background-color: #f0f0f0; }
+
+.input-clean {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: inherit;
+    font-size: 11px;
+}
+
+/* =========================================
+   NOTA Y ACEPTACIÓN
+   ========================================= */
+.nota-escala {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    font-size: 10px;
+}
+.approval-section {
+    text-align: right;
+    font-size: 12px;
+    margin-right: 20px;
+}
+.approval-section label { margin-left: 15px; cursor: pointer; }
+
+/* =========================================
+   FIRMAS
+   ========================================= */
+.signature-section {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.signature-box {
+    width: 35%;
+    text-align: center;
+}
+.signature-box p { font-weight: bold; margin-bottom: 30px; } /* Espacio para firmar */
+.signature-line-draw {
+    border-top: 1px solid #000;
+    margin-bottom: 5px;
+}
+.signature-text { font-size: 11px; }
+
+/* =========================================
+   BOTÓN
+   ========================================= */
+.form-submit-row { text-align: center; margin-top: 30px; }
+.form-submit-row button {
+    padding: 10px 30px;
+    background-color: #1b396a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* =================================================================== */
+/* ESTILOS DE IMPRESIÓN (PDF)                                          */
+/* =================================================================== */
+@media print {
+    @page {
+        size: letter portrait;
+        margin: 1cm;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    body {
+        margin: 0; padding-top: 10px !important;
+        font-family: Arial, sans-serif !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+    }
+
+    @media print {
+    /* ... (tus otras reglas de page y body se quedan igual) ... */
+
+    /* OCULTAR ELEMENTOS WEB */
+    .Contenedor__Navbar, .web-only, .form-submit-row { display: none !important; }
+
+    .criterios-container.main-content {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* --- ARREGLO DE LOGOS (CRÍTICO) --- */
+    /* Le damos un poco más de aire a la columna */
+    .col-logos {
+        width: 22% !important; /* Aumentamos de 18% a 22% */
+        text-align: center !important;
+        vertical-align: middle !important;
+        padding: 2px !important;
+    }
+
+    /* Desactivamos Flexbox en impresión para evitar colisiones */
+    .logos-container {
+        display: block !important;
+        text-align: center !important;
+        white-space: nowrap !important; /* Fuerza a que estén en línea si caben */
+    }
+
+    /* Control estricto de tamaño de imagen */
+    .logo-img {
+        display: inline-block !important;
+        width: auto !important;
+        height: auto !important;
+        max-height: 45px !important; /* Altura máxima fija */
+        max-width: 45% !important;   /* Ancho máximo para asegurar que quepan 2 */
+        margin: 0 2px !important;    /* Espacio entre ellos */
+        vertical-align: middle !important;
+        position: static !important; /* Evita superposiciones extrañas */
+    }
+
+    /* --- RESTO DE TUS ESTILOS DE IMPRESIÓN (TEXTO PLANO, ETC) --- */
+    .input-line {
+        border: none !important;
+        border-bottom: 1px solid #000 !important;
+        background: transparent !important;
+        padding: 0 5px !important;
+        margin: 0 !important;
+        font-family: inherit !important;
+        font-size: 11px !important;
+        color: #000 !important;
+        height: auto !important;
+    }
+
+    .input-clean {
+        border: none !important;
+        background: transparent !important;
+        text-align: center !important;
+        font-weight: bold !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 11px !important;
+        color: #000 !important;
+    }
+
+    input[type="radio"] {
+        appearance: auto !important;
+        -webkit-appearance: radio !important;
+        display: inline-block !important;
+    }
+
+    .document-header-print {
+        display: block !important;
+        border: none !important;
+        margin-bottom: 10px !important;
+    }
+    .cintilla-table { border: 1px solid #000 !important; width: 100% !important; border-collapse: collapse !important; }
+    .cintilla-table td { border: 1px solid #000 !important; padding: 2px !important; }
+
+    label, p, span { color: #000 !important; }
+    label { font-weight: bold !important; }
+}

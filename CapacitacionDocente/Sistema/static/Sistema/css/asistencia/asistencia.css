@@ -1,0 +1,251 @@
+/* =========================================
+   ESTILOS GENERALES (WEB)
+   ========================================= */
+.lista-container.main-content {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #000;
+    max-width: 1200px; /* Ancho para la tabla horizontal */
+    margin: 20px auto;
+    margin-top: 100px;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.mt-40 { margin-top: 40px; }
+.center-text { text-align: center; }
+
+/* =========================================
+   CINTILLA (HEADER)
+   ========================================= */
+.document-header-print {
+    margin-bottom: 10px;
+    border: 1px solid #000;
+}
+
+.cintilla-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cintilla-table td {
+    padding: 5px;
+    vertical-align: middle;
+    border-right: 1px solid #000;
+}
+.cintilla-table td:last-child { border-right: none; }
+
+.col-logos { width: 15%; text-align: center; }
+.logos-container { display: flex; justify-content: space-around; align-items: center; }
+.logo-img { max-height: 45px; width: auto; }
+
+.col-center { width: 70%; text-align: center; }
+.cintilla-main-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+}
+.cintilla-norma { font-size: 10px; margin-top: 4px; }
+
+.col-meta { width: 15%; font-size: 9px; padding: 0 !important; }
+.meta-row { border-bottom: 1px solid #000; padding: 2px 5px; }
+.meta-row:last-child { border-bottom: none; }
+
+/* =========================================
+   BLOQUE DE INFORMACIÓN (CAMPOS DE TEXTO)
+   ========================================= */
+.header-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.lista-title {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1; /* Ocupa el centro */
+    padding-left: 100px; /* Compensa visualmente el input de la derecha */
+}
+.hoja-info { font-weight: bold; font-size: 11px; }
+
+.form-row {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 8px;
+}
+.form-row label {
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.input-line {
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    outline: none;
+    font-size: 11px;
+    padding: 0 5px;
+    flex-grow: 1;
+}
+.input-line.short { width: 30px; text-align: center; flex-grow: 0; }
+.input-line.medium { width: 150px; text-align: center; flex-grow: 0; }
+.input-line.full-width { width: 100%; }
+
+.split-row { justify-content: space-between; gap: 20px; }
+.field-group { display: flex; align-items: flex-end; width: 100%; }
+
+/* =========================================
+   TABLA DE ASISTENCIA
+   ========================================= */
+.table-responsive { overflow-x: auto; margin-bottom: 5px; }
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000;
+}
+.data-table th, .data-table td {
+    border: 1px solid #000;
+    padding: 2px 4px;
+    vertical-align: middle;
+}
+
+.header-gray {
+    background-color: #999;
+    font-weight: bold;
+    text-align: center;
+    font-size: 9px;
+}
+.tiny-text { font-size: 8px; font-weight: normal; display: block; margin-top: 2px; }
+
+/* Inputs en la tabla */
+.input-clean {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: inherit;
+    font-size: 10px;
+}
+
+/* Columnas de asistencia (fondo ligeramente gris en web para distinguir) */
+.gray-col { background-color: #f0f0f0; }
+
+.legend-row { font-size: 10px; margin-left: 20px; }
+
+/* =========================================
+   PIE DE PÁGINA (FIRMAS)
+   ========================================= */
+.footer-signatures {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 0 50px;
+}
+.sig-column {
+    width: 350px;
+    text-align: center;
+}
+.sig-title-top { margin-bottom: 40px; font-size: 10px; } /* Espacio para firma */
+.sig-line { border-top: 1px solid #000; width: 100%; margin-bottom: 5px; }
+.sig-label { font-weight: bold; font-size: 10px; margin-bottom: 15px; }
+
+.extra-field {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 5px;
+    justify-content: flex-start;
+}
+.extra-field label { margin-right: 5px; font-size: 10px; font-weight: bold; }
+.input-line-small {
+    border: none;
+    border-bottom: 1px solid #000;
+    width: 200px;
+    outline: none;
+    font-size: 10px;
+}
+
+/* =========================================
+   BOTÓN
+   ========================================= */
+.form-submit-row { text-align: center; margin-top: 30px; }
+.form-submit-row button {
+    padding: 10px 30px;
+    background-color: #1b396a;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* =========================================
+   ESTILOS DE IMPRESIÓN (PDF)
+   ========================================= */
+@media print {
+    /* Lista ancha en horizontal */
+    @page { size: landscape; margin: 1cm; }
+
+    body { padding: 0; margin: 0; font-family: Arial, sans-serif !important; -webkit-print-color-adjust: exact; }
+
+    /* OCULTAR ELEMENTOS WEB */
+    .Contenedor__Navbar, .web-only, .form-submit-row { display: none !important; }
+
+    .lista-container.main-content {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* --- CINTILLA Y LOGOS (FIXED) --- */
+    .document-header-print {
+        display: block !important;
+        border: none !important;
+        margin-bottom: 10px !important;
+    }
+    .cintilla-table { width: 100% !important; border: 1px solid #000 !important; }
+    .cintilla-table td { border: 1px solid #000 !important; padding: 2px !important; }
+
+    /* Corrección Logos */
+    .col-logos { width: 15% !important; text-align: center !important; padding: 2px !important; }
+    .logos-container { display: block !important; text-align: center !important; white-space: nowrap !important; }
+    .logo-img {
+        display: inline-block !important; width: auto !important; height: auto !important;
+        max-height: 45px !important; max-width: 45% !important;
+        margin: 0 2px !important; vertical-align: middle !important; position: static !important;
+    }
+
+    /* --- INPUTS PLANOS --- */
+    .input-clean, .input-line, .input-line-small {
+        border: none !important;
+        background: transparent !important;
+        padding: 0 2px !important;
+        margin: 0 !important;
+        width: 100% !important;
+        font-family: inherit !important;
+        font-size: 10px !important;
+        color: #000 !important;
+        height: auto !important;
+    }
+
+    /* Mantener líneas solo en encabezado y firmas */
+    .input-line, .input-line-small { border-bottom: 1px solid #000 !important; }
+
+    /* --- TABLAS --- */
+    .data-table { border: 1px solid #000 !important; width: 100% !important; border-collapse: collapse !important; }
+    .data-table th, .data-table td { border: 1px solid #000 !important; padding: 3px !important; }
+    .header-gray { background-color: #999 !important; font-weight: bold !important; }
+
+    /* Forzar fondo gris en columnas de asistencia para que se distingan */
+    .gray-col { background-color: #f0f0f0 !important; -webkit-print-color-adjust: exact; }
+
+    /* --- ETIQUETAS --- */
+    label { font-weight: bold !important; color: #000 !important; }
+}

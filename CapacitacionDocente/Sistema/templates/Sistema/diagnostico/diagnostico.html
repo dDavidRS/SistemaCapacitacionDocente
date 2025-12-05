@@ -1,0 +1,374 @@
+{% extends 'Sistema/layouts/menu_admin.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <meta charset="UTF-8">
+    <title>Diagnóstico de Necesidades</title>
+    <link rel="stylesheet" href="{% static 'Sistema/css/diagnostico/diagnostico.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="formulario main-content">
+
+        {# --- 1. BOTÓN DE DESCARGA AUTOMÁTICO --- #}
+        {% if download_data %}
+            <div class="alert alert-success text-center shadow-sm web-only" style="border-left: 5px solid #1b396a; margin-bottom: 30px; padding: 20px; background-color: #d1e7dd;">
+                <h4 style="color: #1b396a; margin-top: 0;"><i class="fa-solid fa-circle-check"></i> ¡Guardado Exitosamente!</h4>
+                <p style="font-size: 14px; color: #0f5132;">El diagnóstico se ha registrado. Puedes descargar la versión firmada aquí:</p>
+
+                <a href="{% url 'descargar_pdf' download_data.tipo download_data.pk %}"
+                   class="btn"
+                   style="background-color: #1b396a; color: white; border-radius: 50px; padding: 10px 30px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px;">
+                    <i class="fa-solid fa-file-pdf me-2"></i> Descargar PDF
+                </a>
+            </div>
+        {% endif %}
+
+        {# --- MENSAJES DE ERROR --- #}
+        {% if form.errors %}
+            <div style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 20px; border: 1px solid #f5c6cb; border-radius: 5px;">
+                <strong>No se pudo guardar el Diagnóstico. Por favor revisa:</strong>
+                <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ field.label }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        {# --- CINTILLA (ENCABEZADO) --- #}
+        <header class="document-header-print">
+            <table class="cintilla-table">
+                <tr>
+                    <td class="col-logos">
+                        <div class="logos-container">
+                            <img src="{% static 'Sistema/img/logo_tecnm.png' %}" alt="TecNM" class="logo-img logo-tecnm">
+                            <img src="{% static 'Sistema/img/logo_tecreynosa.png' %}" alt="Tec Reynosa" class="logo-img logo-tec">
+                        </div>
+                    </td>
+                    <td class="col-center">
+                        <div class="center-content">
+                            <h1 class="cintilla-main-title">DIAGNÓSTICO DE NECESIDADES DE FORMACIÓN DOCENTE Y ACTUALIZACIÓN PROFESIONAL</h1>
+                            <div class="cintilla-norma">Referencia a la Norma: ISO 9001:2015 7.2 7.3</div>
+                        </div>
+                    </td>
+                    <td class="col-meta">
+                        <div class="meta-row"><strong>Código:</strong> ITR-AC-F49</div>
+                        <div class="meta-row"><strong>Versión:</strong> 4</div>
+                        <div class="meta-row"><strong>Fecha de Emisión:</strong><br>septiembre de 2022</div>
+                        <div class="meta-row"><strong>Página:</strong> 1 de 3</div>
+                    </td>
+                </tr>
+            </table>
+        </header>
+
+        <form method="POST" class="diagnostico-form-body">
+            {% csrf_token %}
+
+            {# --- TÍTULOS SUPERIORES --- #}
+            <div class="titles-container">
+                <h2 class="institute-title">INSTITUTO TECNOLÓGICO DE REYNOSA</h2>
+                <h3 class="subtitle">Subdirección Académica</h3>
+                <h3 class="subtitle bold top-margin">DIAGNÓSTICO DE NECESIDADES DE FORMACIÓN Y ACTUALIZACIÓN DOCENTE Y PROFESIONAL</h3>
+            </div>
+
+            {# --- DATOS GENERALES --- #}
+            <section class="form-section">
+                <div class="form-row">
+                    <label>Departamento Académico:</label>
+                    <input type="text" name="departamento_academico" class="input-line full-width" value="{{ form.departamento_academico.value|default:'' }}" required>
+                </div>
+
+                <div class="form-text-block">
+                    PARA LOS (AS) PROFESORES (AS) DE LA CARRERA DE
+                    <input type="text" name="carrera" class="input-line inline-input large" value="{{ form.carrera.value|default:'' }}" required>
+                    DEL DEPARTAMENTO DE
+                    <input type="text" name="dept_origen" class="input-line inline-input large" value="{{ form.dept_origen.value|default:'' }}" required>
+                </div>
+                <div class="form-text-block">
+                    Fecha de realización del diagnóstico:
+                    <input type="date" name="fecha_realizacion" class="input-line inline-input medium" value="{{ form.fecha_realizacion.value|date:'Y-m-d'|default:'' }}" required>
+                </div>
+            </section>
+
+            {# --- FIRMAS PARTE 1 --- #}
+            <section class="form-section">
+                <table class="signature-table">
+                    <tr>
+                        <td colspan="2" class="signature-label-top">Jefe (a) del Departamento Académico</td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell">Nombre</td>
+                        <td class="label-cell">Firma</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="jefe_nombre" class="input-clean" value="{{ form.jefe_nombre.value|default:'' }}" required></td>
+                        <td><input type="text" name="jefe_firma" class="input-clean" disabled placeholder=""></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="signature-label-top mt-table">Presidente (a) de Academia</td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell">Nombre</td>
+                        <td class="label-cell">Firma</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="presidente_nombre" class="input-clean" value="{{ form.presidente_nombre.value|default:'' }}" required></td>
+                        <td><input type="text" name="pres_firma" class="input-clean" disabled placeholder=""></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="signature-label-top mt-table">Secretario (a) de Academia</td>
+                    </tr>
+                    <tr>
+                        <td class="label-cell">Nombre</td>
+                        <td class="label-cell">Firma</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="secretario_nombre" class="input-clean" value="{{ form.secretario_nombre.value|default:'' }}" required></td>
+                        <td><input type="text" name="sec_firma" class="input-clean" disabled placeholder=""></td>
+                    </tr>
+                </table>
+            </section>
+
+            {# --- TABLA A: ASIGNATURAS GENÉRICAS --- #}
+            <section class="form-section">
+                <div class="section-instruction">
+                    <strong>a) PRIORIZAR LAS ASIGNATURAS EN LAS QUE REQUIERA LA FORMACIÓN O ACTUALIZACIÓN DEL(A) PROFESOR(A) EN LA CARRERA GENÉRICA, AVALADOS POR LA ACADEMIA.</strong>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th width="20%">Asignaturas en la que se requiere formación o actualización</th>
+                            <th width="25%">Contenidos temáticos en que se requiere la formación o actualización</th>
+                            <th width="10%">Número de profesores (as) que la requieren</th>
+                            <th width="20%">Periodo en el que se requiere (enero-junio o agosto diciembre)</th>
+                            <th width="25%">Instructores (as) propuestos (as) (nombre y datos para su localización)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if tabla_a %}
+                            {# MODO PDF: Muestra datos guardados #}
+                            {% for fila in tabla_a %}
+                            <tr>
+                                <td><textarea class="input-clean">{{ fila.asignatura|default:'' }}</textarea></td>
+                                <td><textarea class="input-clean">{{ fila.contenido|default:'' }}</textarea></td>
+                                <td><input type="text" class="input-clean center-text" value="{{ fila.num_profesores|default:'' }}"></td>
+                                <td><input type="text" class="input-clean center-text" value="{{ fila.periodo|default:'' }}"></td>
+                                <td><textarea class="input-clean">{{ fila.instructor_propuesto|default:'' }}</textarea></td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            {# MODO WEB: Inputs para escribir #}
+                            {% for i in "123" %}
+                            <tr>
+                                <td><textarea name="a_asignatura_{{forloop.counter}}" rows="3"></textarea></td>
+                                <td><textarea name="a_contenido_{{forloop.counter}}" rows="3"></textarea></td>
+                                <td><input type="number" name="a_num_profes_{{forloop.counter}}" class="input-clean center-text"></td>
+                                <td><input type="text" name="a_periodo_{{forloop.counter}}" class="input-clean center-text"></td>
+                                <td><textarea name="a_instructor_{{forloop.counter}}" rows="3"></textarea></td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </section>
+            <br>
+            {# --- TABLA B: MÓDULOS DE ESPECIALIDAD --- #}
+            <section class="form-section mt-40">
+                <div class="section-instruction">
+                    <strong>b) PRIORIZAR LAS ASIGNATURAS EN LAS QUE REQUIERA LA FORMACIÓN O ACTUALIZACIÓN DEL(A) PROFESOR(A) EN LOS MÓDULOS DE ESPECIALIDAD, AVALADOS POR LA ACADEMIA.</strong>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th width="20%">Asignaturas en la que se requiere formación o actualización</th>
+                            <th width="25%">Contenidos temáticos en que se requiere la formación o actualización</th>
+                            <th width="10%">Número de profesores (as) que la requieren</th>
+                            <th width="20%">Periodo en el que se requiere (enero-junio o agosto diciembre)</th>
+                            <th width="25%">Instructores (as) propuestos (as) (nombre y datos para su localización)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if tabla_b %}
+                            {% for fila in tabla_b %}
+                            <tr>
+                                <td><textarea class="input-clean">{{ fila.asignatura|default:'' }}</textarea></td>
+                                <td><textarea class="input-clean">{{ fila.contenido|default:'' }}</textarea></td>
+                                <td><input type="text" class="input-clean center-text" value="{{ fila.num_profesores|default:'' }}"></td>
+                                <td><input type="text" class="input-clean center-text" value="{{ fila.periodo|default:'' }}"></td>
+                                <td><textarea class="input-clean">{{ fila.instructor_propuesto|default:'' }}</textarea></td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in "123" %}
+                            <tr>
+                                <td><textarea name="b_asignatura_{{forloop.counter}}" rows="3"></textarea></td>
+                                <td><textarea name="b_contenido_{{forloop.counter}}" rows="3"></textarea></td>
+                                <td><input type="number" name="b_num_profes_{{forloop.counter}}" class="input-clean center-text"></td>
+                                <td><input type="text" name="b_periodo_{{forloop.counter}}" class="input-clean center-text"></td>
+                                <td><textarea name="b_instructor_{{forloop.counter}}" rows="3"></textarea></td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+
+                <p class="doc-note">
+                    <strong>Nota:</strong> La formación docente estará atendida prioritariamente con el Programa Nacional de Formación Docente Centrado en el Aprendizaje (Formación DOCA)
+                </p>
+            </section>
+
+            {# --- SEPARADOR VISUAL (Inicio Parte 3 / Concentrado) --- #}
+            <div class="page-separator">
+                <hr>
+                <span>CONCENTRADO</span>
+            </div>
+
+            {# --- PARTE 3: CONCENTRADO --- #}
+            <div class="titles-container">
+                <h3 class="subtitle bold">CONCENTRADO DEL DIAGNÓSTICO DE NECESIDADES DE FORMACIÓN Y ACTUALIZACIÓN DOCENTE Y PROFESIONAL</h3>
+            </div>
+
+            <div class="form-row">
+                <label>Fecha de realización del diagnóstico:</label>
+                <input type="date" name="fecha_concentrado" class="input-line" style="width: 50%;" value="{{ form.fecha_concentrado.value|date:'Y-m-d'|default:'' }}" required>
+            </div>
+
+            {# --- TABLA C: ACTIVIDADES DOCENTE --- #}
+            <section class="form-section">
+                <div class="section-instruction">
+                    <strong>a)</strong> ACTIVIDADES O EVENTOS QUE SE LLEVARÁN A CABO PARA LA FORMACIÓN Y ACTUALIZACIÓN DOCENTE (CONTENIDOS TEMÁTICOS DE LAS ASIGNATURAS)
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th width="40%">Actividad o Evento (Cursos, talleres, conferencias, etc.)</th>
+                            <th width="30%">Carrera(s) atendida(s) / No. de profesores (as)</th>
+                            <th width="30%">Fecha en que se realizará la actividad o evento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if tabla_c %}
+                            {% for fila in tabla_c %}
+                            <tr>
+                                <td><input type="text" class="input-clean" value="{{ fila.actividad|default:'' }}"></td>
+                                <td><input type="text" class="input-clean" value="{{ fila.carrera_atendida|default:'' }}"></td>
+                                <td><input type="text" class="input-clean" value="{{ fila.fecha_evento|default:'' }}"></td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in "123" %}
+                            <tr>
+                                <td><input type="text" name="c_actividad_{{forloop.counter}}" class="input-clean"></td>
+                                <td><input type="text" name="c_carrera_{{forloop.counter}}" class="input-clean"></td>
+                                <td><input type="text" name="c_fecha_{{forloop.counter}}" class="input-clean"></td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </section>
+
+            {# --- TABLA D: ACTIVIDADES PROFESIONAL --- #}
+            <section class="form-section mt-20">
+                <div class="section-instruction">
+                    <strong>b)</strong> ACTIVIDADES O EVENTOS QUE SE LLEVARÁN A CABO PARA LA FORMACIÓN Y ACTUALIZACIÓN PROFESIONAL (MÓDULOS DE ESPECIALIDAD)
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th width="40%">Actividad o Evento (Cursos, talleres, conferencias, etc.)</th>
+                            <th width="30%">Carrera(s) atendida(s) / No. de profesores(as)</th>
+                            <th width="30%">Fecha en que se realizará la actividad o evento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if tabla_d %}
+                            {% for fila in tabla_d %}
+                            <tr>
+                                <td><input type="text" class="input-clean" value="{{ fila.actividad|default:'' }}"></td>
+                                <td><input type="text" class="input-clean" value="{{ fila.carrera_atendida|default:'' }}"></td>
+                                <td><input type="text" class="input-clean" value="{{ fila.fecha_evento|default:'' }}"></td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in "123" %}
+                            <tr>
+                                <td><input type="text" name="d_actividad_{{forloop.counter}}" class="input-clean"></td>
+                                <td><input type="text" name="d_carrera_{{forloop.counter}}" class="input-clean"></td>
+                                <td><input type="text" name="d_fecha_{{forloop.counter}}" class="input-clean"></td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </section>
+
+            {# --- FIRMAS PARTE 2 (SUBDIRECTOR Y JEFES) --- #}
+            <section class="form-section mt-40">
+                <table class="signature-table-wide">
+                    <tr>
+                        <td colspan="2" class="signature-label-top">Subdirector (a) Académico (a)</td>
+                    </tr>
+                    <tr class="gray-bg">
+                        <td width="50%">Nombre</td>
+                        <td width="50%">Firma</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="subdirector_nombre" class="input-clean" value="{{ form.subdirector_nombre.value|default:'' }}" required></td>
+                        <td><input type="text" name="subdirector_firma" class="input-clean" disabled></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="signature-label-top mt-table">Jefe (a) de Departamento Académico</td>
+                    </tr>
+                </table>
+
+                {# Tabla especial para Jefes con columna 'Departamento' (MODIFICADA PARA USAR NUEVOS CAMPOS) #}
+                <table class="signature-table-wide" style="border-top: none;">
+                     <tr class="gray-bg">
+                        <td width="40%">Nombre</td>
+                        <td width="30%">Departamento</td>
+                        <td width="30%">Firma</td>
+                    </tr>
+
+                    {# FILA 1 #}
+                    <tr>
+                        <td><input type="text" name="jefe1_nombre" class="input-clean" value="{{ form.jefe1_nombre.value|default:'' }}"></td>
+                        <td><input type="text" name="jefe1_depto" class="input-clean" value="{{ form.jefe1_depto.value|default:'' }}"></td>
+                        <td><input type="text" class="input-clean" disabled></td>
+                    </tr>
+                    {# FILA 2 #}
+                    <tr>
+                        <td><input type="text" name="jefe2_nombre" class="input-clean" value="{{ form.jefe2_nombre.value|default:'' }}"></td>
+                        <td><input type="text" name="jefe2_depto" class="input-clean" value="{{ form.jefe2_depto.value|default:'' }}"></td>
+                        <td><input type="text" class="input-clean" disabled></td>
+                    </tr>
+                    {# FILA 3 #}
+                    <tr>
+                        <td><input type="text" name="jefe3_nombre" class="input-clean" value="{{ form.jefe3_nombre.value|default:'' }}"></td>
+                        <td><input type="text" name="jefe3_depto" class="input-clean" value="{{ form.jefe3_depto.value|default:'' }}"></td>
+                        <td><input type="text" class="input-clean" disabled></td>
+                    </tr>
+                    {# FILA 4 #}
+                    <tr>
+                        <td><input type="text" name="jefe4_nombre" class="input-clean" value="{{ form.jefe4_nombre.value|default:'' }}"></td>
+                        <td><input type="text" name="jefe4_depto" class="input-clean" value="{{ form.jefe4_depto.value|default:'' }}"></td>
+                        <td><input type="text" class="input-clean" disabled></td>
+                    </tr>
+                </table>
+            </section>
+
+            <div class="form-submit-row web-only">
+                <button type="submit">Guardar Diagnóstico</button>
+            </div>
+
+        </form>
+    </section>
+{% endblock %}

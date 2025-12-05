@@ -1,0 +1,202 @@
+{% extends 'Sistema/layouts/menu_admin.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <meta charset="UTF-8">
+    <title>Programa de Formación Docente</title>
+    <link rel="stylesheet" href="{% static 'Sistema/css/programa/programa.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="programa-container main-content">
+
+        {# --- BOTÓN DE DESCARGA --- #}
+        {% if download_data %}
+            <div class="alert alert-success text-center shadow-sm web-only" style="border-left: 5px solid #1b396a; margin-bottom: 30px; padding: 20px; background-color: #d1e7dd;">
+                <h4 style="color: #1b396a; margin-top: 0;"><i class="fa-solid fa-circle-check"></i> ¡Guardado Exitosamente!</h4>
+                <p style="font-size: 14px; color: #0f5132;">El programa se ha registrado. Puedes descargar la versión firmada aquí:</p>
+
+                <a href="{% url 'descargar_pdf' download_data.tipo download_data.pk %}"
+                   class="btn"
+                   style="background-color: #1b396a; color: white; border-radius: 50px; padding: 10px 30px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px;">
+                    <i class="fa-solid fa-file-pdf me-2"></i> Descargar PDF
+                </a>
+            </div>
+        {% endif %}
+
+        {# --- MENSAJES DE ERROR --- #}
+        {% if form.errors %}
+            <div style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 20px; border: 1px solid #f5c6cb; border-radius: 5px;">
+                <strong>No se pudo guardar el Programa. Por favor revisa:</strong>
+                <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ field.label }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <form method="POST" class="programa-form-body">
+            {% csrf_token %}
+
+            {# --- CINTILLA ESTANDARIZADA --- #}
+            <header class="document-header-print">
+                <table class="cintilla-table">
+                    <tr>
+                        <td class="col-logos">
+                            <div class="logos-container">
+                                <img src="{% static 'Sistema/img/LogoTecnmChiquis.png' %}" alt="TecNM" class="logo-img logo-tecnm">
+                                <img src="{% static 'Sistema/img/LogoItrNoFondo.png' %}" alt="Tec Reynosa" class="logo-img logo-tec">
+                            </div>
+                        </td>
+                        <td class="col-center">
+                            <div class="center-content">
+                                <h1 class="cintilla-main-title">PROGRAMA DE FORMACIÓN DOCENTE Y ACTUALIZACIÓN PROFESIONAL</h1>
+                                <div class="cintilla-norma">Referencia a la Norma: ISO 9001:2015 7.2 7.3</div>
+                            </div>
+                        </td>
+                        <td class="col-meta">
+                            <div class="meta-row"><strong>Código:</strong> ITR-AC-F50</div>
+                            <div class="meta-row"><strong>Versión:</strong> 4</div>
+                            <div class="meta-row"><strong>Fecha de Emisión:</strong><br>septiembre de 2022</div>
+                            <div class="meta-row"><strong>Página:</strong> 1 de 2</div>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            {# --- TÍTULOS Y PERIODO --- #}
+            <div class="titles-container">
+                <h2 class="institute-title">INSTITUTO TECNOLÓGICO DE REYNOSA</h2>
+                <h3 class="program-subtitle">PROGRAMA INSTITUCIONAL DE FORMACIÓN Y ACTUALIZACIÓN DOCENTE Y PROFESIONAL</h3>
+
+                <div class="periodo-row">
+                    <label>PERIODO</label>
+                    <input type="text" name="periodo" class="input-line center-text" placeholder="(1)" value="{{ form.periodo.value|default:'' }}" required>
+                </div>
+            </div>
+
+            {# --- TABLA PRINCIPAL --- #}
+            <section class="form-section">
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            {# Fila de Encabezados de Texto #}
+                            <tr class="header-gray">
+                                <th width="3%">No.</th>
+                                <th width="15%">Nombre del Curso</th>
+                                <th width="15%">Objetivo</th>
+                                <th width="10%">Periodo de Realización</th>
+                                <th width="10%">Lugar</th>
+                                <th width="5%">No. de horas por Curso</th>
+                                <th width="15%">Nombre y grado máximo del Instructor (a)</th>
+                                <th width="10%">Dirigido a:</th>
+                                <th width="17%">Observaciones</th>
+                            </tr>
+                            {# Fila de Números de Referencia #}
+                            <tr class="header-white">
+                                <th>(2)</th>
+                                <th>(3)</th>
+                                <th>(4)</th>
+                                <th>(5)</th>
+                                <th>(6)</th>
+                                <th>(7)</th>
+                                <th>(8)</th>
+                                <th>(9)</th>
+                                <th>(10)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {# --- LÓGICA DOBLE: PDF (DATOS) VS WEB (VACÍO) --- #}
+                            {% if tabla_filas %}
+                                {# VISTA PDF: Usamos los datos preparados en la vista #}
+                                {% for fila in tabla_filas %}
+                                <tr>
+                                    <td><input type="text" class="input-clean center-text" value="{{fila.counter}}"></td>
+                                    <td><textarea class="input-clean">{{ fila.nombre_curso }}</textarea></td>
+                                    <td><textarea class="input-clean">{{ fila.objetivo }}</textarea></td>
+                                    <td><textarea class="input-clean center-text">{{ fila.periodo }}</textarea></td>
+                                    <td><textarea class="input-clean center-text">{{ fila.lugar }}</textarea></td>
+                                    <td><input type="text" class="input-clean center-text" value="{{ fila.horas }}"></td>
+                                    <td><textarea class="input-clean">{{ fila.instructor }}</textarea></td>
+                                    <td><textarea class="input-clean">{{ fila.dirigido }}</textarea></td>
+                                    <td><textarea class="input-clean">{{ fila.observaciones }}</textarea></td>
+                                </tr>
+                                {% endfor %}
+                            {% else %}
+                                {# VISTA WEB: Inputs vacíos para capturar #}
+                                {% for i in "1234567890" %}
+                                <tr>
+                                    <td><input type="text" name="no_{{forloop.counter}}" class="input-clean center-text" value="{{forloop.counter}}"></td>
+                                    <td><textarea name="curso_{{forloop.counter}}" rows="2" class="input-clean"></textarea></td>
+                                    <td><textarea name="objetivo_{{forloop.counter}}" rows="2" class="input-clean"></textarea></td>
+                                    <td><textarea name="periodo_{{forloop.counter}}" rows="2" class="input-clean center-text"></textarea></td>
+                                    <td><textarea name="lugar_{{forloop.counter}}" rows="2" class="input-clean center-text"></textarea></td>
+                                    <td><input type="number" name="horas_{{forloop.counter}}" class="input-clean center-text"></td>
+                                    <td><textarea name="instructor_{{forloop.counter}}" rows="2" class="input-clean"></textarea></td>
+                                    <td><textarea name="dirigido_{{forloop.counter}}" rows="2" class="input-clean"></textarea></td>
+                                    <td><textarea name="observaciones_{{forloop.counter}}" rows="2" class="input-clean"></textarea></td>
+                                </tr>
+                                {% endfor %}
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            {# --- SECCIÓN DE FIRMAS --- #}
+            <section class="form-section mt-40">
+                <table class="signature-table">
+                    <thead>
+                        <tr class="header-gray">
+                            <th width="50%">Elaboró</th>
+                            <th width="50%">Aprobó</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="signature-space">
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="signature-names">
+                            <td>
+                                <div class="sig-container">
+                                    <div class="sig-label">Nombre, puesto y firma (11)</div>
+                                    <input type="text" name="elaboro_nombre" class="input-clean center-text" value="{{ form.elaboro_nombre.value|default:'' }}" required>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="sig-container">
+                                    <div class="sig-label">Nombre, puesto y firma (12)</div>
+                                    <input type="text" name="aprobo_nombre" class="input-clean center-text" value="{{ form.aprobo_nombre.value|default:'' }}" required>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="signature-date">
+                            <td>
+                                <div class="date-container">
+                                    <label>Fecha:</label>
+                                    <input type="date" name="elaboro_fecha" class="input-line short-date" value="{{ form.elaboro_fecha.value|date:'Y-m-d'|default:'' }}" required>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="date-container">
+                                    <label>Fecha:</label>
+                                    <input type="date" name="aprobo_fecha" class="input-line short-date" value="{{ form.aprobo_fecha.value|date:'Y-m-d'|default:'' }}" required>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <div class="form-submit-row web-only">
+                <button type="submit">Guardar Programa</button>
+            </div>
+
+        </form>
+
+    </section>
+{% endblock %}

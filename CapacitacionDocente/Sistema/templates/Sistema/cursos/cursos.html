@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Cursos | TecNM</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'Sistema/css/cursos/cursos.css' %}">
+</head>
+<body>
+
+    <nav class="navbar navbar-tecnm">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <a class="navbar-brand" href="#">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    Gestión de Cursos
+                </a>
+
+                <a href="/" class="btn btn-sm btn-regresar">
+                    <i class="fa-solid fa-arrow-left me-2"></i> Regresar al Inicio
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="card-custom">
+
+            <div class="page-header d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="page-title">Listado de Cursos Ofertados</h5>
+                    <p class="text-muted small mb-0">Vista general del estado actual de los grupos.</p>
+                </div>
+                <div class="text-end text-muted small">
+                    <i class="fa-regular fa-calendar"></i> Ciclo Escolar 2025
+                </div>
+            </div>
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>Curso / Clave</th>
+                            <th>Instructor</th>
+                            <th>Periodo</th>
+                            <th class="text-center">Estado Actual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for curso in cursos %}
+                        <tr>
+                            <td>
+                                <div class="fw-bold text-primary-custom">{{ curso.nombre }}</div>
+                                <small class="text-muted"><i class="fa-solid fa-tag me-1"></i>{{ curso.clave }}</small>
+                            </td>
+                            <td>
+                                <i class="fa-regular fa-user me-2 text-muted"></i>{{ curso.instructor }}
+                            </td>
+                            <td>{{ curso.periodo }}</td>
+                            <td class="text-center">
+                                <span class="badge rounded-pill status-badge
+                                    {% if curso.estado == 'disponible' %}status-disponible
+                                    {% elif curso.estado == 'pausa' %}status-pausa
+                                    {% else %}status-cancelado{% endif %}">
+                                    {{ curso.get_estado_display }}
+                                </span>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="4" class="text-center py-5 text-muted">
+                                <i class="fa-solid fa-folder-open fa-2x mb-3 d-block"></i>
+                                No hay cursos registrados en el sistema.
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-4 border-top pt-3 text-center text-muted small">
+                Tecnológico Nacional de México - Instituto Tecnológico de Reynosa
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+/* =========================================
+   VARIABLES & BASE
+   ========================================= */
+:root {
+    --tecnm-blue: #1b396a; /* Azul Institucional */
+    --bg-light: #f4f6f9;   /* Fondo gris suave */
+}
+
+body {
+    background-color: var(--bg-light);
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Espacio para el navbar fijo */
+.main-wrapper {
+    /* ANTES: margin-top: 100px; */
+    /* CAMBIA A: */
+    margin-top: 140px; /* Le damos más espacio para que respire */
+
+    margin-bottom: 40px;
+    max-width: 1200px;
+    padding: 0 15px;
+}
+
+/* =========================================
+   TARJETA PRINCIPAL (Igual a Cursos)
+   ========================================= */
+.card-custom {
+    background: white;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05); /* Sombra suave idéntica a cursos */
+    padding: 2rem;
+}
+
+/* Encabezado */
+.page-header {
+    border-bottom: 2px solid #eee;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.page-title {
+    color: var(--tecnm-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* =========================================
+   FILTROS
+   ========================================= */
+.filters-box {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.form-select, .form-control {
+    border-color: #ced4da;
+    font-size: 0.9rem;
+}
+
+.form-select:focus {
+    border-color: var(--tecnm-blue);
+    box-shadow: 0 0 0 0.25rem rgba(27, 57, 106, 0.15);
+}
+
+.input-group-text {
+    color: var(--tecnm-blue);
+    border-color: #ced4da;
+}
+
+/* =========================================
+   BOTONES
+   ========================================= */
+.btn-tecnm {
+    background-color: var(--tecnm-blue);
+    color: white;
+    font-weight: 600;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-tecnm:hover {
+    background-color: #132a50; /* Un tono más oscuro al pasar el mouse */
+    color: white;
+}
+
+/* =========================================
+   GRÁFICO
+   ========================================= */
+.chart-wrapper {
+    position: relative;
+    height: 500px; /* Altura fija para que se vea bien */
+    width: 100%;
+    margin-top: 20px;
+}

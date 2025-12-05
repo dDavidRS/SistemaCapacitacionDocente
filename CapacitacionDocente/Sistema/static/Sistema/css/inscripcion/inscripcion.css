@@ -1,0 +1,283 @@
+/* =========================================
+   CONTENEDOR GENERAL
+   ========================================= */
+.formulario.main-content {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000;
+    max-width: 900px;
+    margin: 20px auto;
+    margin-top: 100px;
+    background-color: #fff;
+    padding: 30px;
+    /* Sombra ligera para la vista web */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   CINTILLA (HEADER - ESTILO TABLA)
+   ========================================= */
+.document-header-print {
+    margin-bottom: 20px;
+    border: 1px solid #000;
+}
+
+.cintilla-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cintilla-table td {
+    padding: 5px;
+    vertical-align: middle;
+    border-right: 1px solid #000;
+}
+
+.cintilla-table td:last-child {
+    border-right: none;
+}
+
+.col-logos { width: 20%; text-align: center; }
+.logos-container { display: flex; justify-content: space-around; align-items: center; }
+.logo-img { max-height: 50px; width: auto; }
+
+.col-center { width: 60%; text-align: center; }
+.cintilla-main-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    text-transform: uppercase;
+}
+.cintilla-norma { font-size: 10px; color: #333; }
+
+.col-meta { width: 20%; font-size: 9px; padding: 0 !important; }
+.meta-row { border-bottom: 1px solid #000; padding: 2px 5px; }
+.meta-row:last-child { border-bottom: none; }
+
+/* =========================================
+   TÍTULOS PRINCIPALES
+   ========================================= */
+.titles-container { text-align: center; margin-bottom: 15px; }
+.institute-title { font-size: 14px; font-weight: bold; margin: 0 0 5px 0; text-transform: uppercase; }
+.form-title { font-size: 12px; font-weight: bold; margin: 0; text-transform: uppercase; }
+
+/* =========================================
+   ESTILOS DE FORMULARIO (LÍNEAS)
+   ========================================= */
+.inscripcion-form-body { padding: 0 10px; }
+
+/* Fecha */
+.date-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+.date-row label { font-weight: bold; margin-right: 5px; }
+
+/* Secciones */
+.section-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    margin: 20px 0 15px 0;
+    text-transform: uppercase;
+}
+
+/* Filas comunes */
+.form-row {
+    display: flex;
+    align-items: flex-end; /* Alinea el texto con la línea del input */
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.form-row label {
+    white-space: nowrap; /* Evita que la etiqueta se rompa */
+    margin-right: 5px;
+    font-size: 11px;
+}
+
+/* Inputs estilo línea */
+.input-line {
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    padding: 0 5px 2px 5px;
+    font-size: 12px;
+    outline: none;
+    flex-grow: 1; /* Ocupa el espacio restante */
+}
+.input-line:focus { border-bottom: 2px solid #004a99; }
+
+/* Clases utilitarias de ancho */
+.full-width { width: 100%; }
+.short-input { width: 150px; flex-grow: 0; }
+.medium-input { width: 200px; flex-grow: 0; }
+
+/* Filas divididas (Horario/Duración, Tel/Ext) */
+.split-row { justify-content: space-between; }
+.field-group { display: flex; align-items: flex-end; }
+.field-group.flex-grow { flex-grow: 1; margin-right: 20px; }
+
+/* Género */
+.gender-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    font-size: 11px;
+}
+.gender-row input[type="radio"] { margin: 0 2px; vertical-align: middle; }
+.ml-20 { margin-left: 30px; }
+
+/* Nombre con subtítulos */
+.name-row-container {
+    display: block; /* Cambiamos a bloque para apilar */
+    margin-bottom: 15px;
+}
+.name-main-line { display: flex; align-items: flex-end; width: 100%; }
+.name-sub-labels {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 70px; /* Espacio para alinear aprox debajo de la línea */
+    margin-top: 2px;
+}
+.name-sub-labels span {
+    font-size: 9px;
+    color: #000;
+    text-align: center;
+    width: 30%;
+}
+
+/* Firma */
+.signature-section {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-end; /* Alineado a la derecha según imagen */
+    padding-right: 50px;
+}
+.signature-box { text-align: center; width: 250px; }
+.signature-line-draw { border-top: 1px solid #000; margin-bottom: 5px; }
+.signature-text { font-size: 11px; }
+
+/* Botón de guardar */
+.form-submit-row { text-align: center; margin-top: 40px; }
+.form-submit-row button {
+    padding: 10px 30px;
+    background-color: #1b396a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* --- CLASES DE UTILIDAD PARA CONTROL WEB/PRINT --- */
+/* Contenedor flexible para alinear select y span */
+.field-print-wrapper {
+    flex-grow: 1;
+    position: relative;
+    display: flex; /* Asegura que hijos tomen ancho */
+}
+
+/* En pantalla normal, ocultamos la versión de impresión */
+.print-view { display: none; }
+
+/* En pantalla normal, mostramos la versión web */
+.web-view { display: block; }
+
+
+/* =================================================================== */
+/* ESTILOS DE IMPRESIÓN (PDF)                                          */
+/* =================================================================== */
+@media print {
+    @page {
+        size: letter portrait;
+        margin: 1.5cm 1cm 1cm 1cm;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    body {
+        margin: 0; padding-top: 10px !important;
+        font-family: Arial, Helvetica, sans-serif !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+    }
+
+    /* OCULTAR ELEMENTOS WEB */
+    .Contenedor__Navbar, .web-only, .form-submit-row { display: none !important; }
+
+    .formulario.main-content {
+        box-shadow: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* --- ARREGLO DE LOGOS (INICIO) --- */
+    .col-logos {
+        width: 22% !important; /* Un poco más de espacio */
+        text-align: center !important;
+        vertical-align: middle !important;
+        padding: 2px !important;
+    }
+
+    .logos-container {
+        display: block !important; /* Quitamos flex para evitar encimado */
+        text-align: center !important;
+        white-space: nowrap !important;
+    }
+
+    .logo-img {
+        display: inline-block !important;
+        width: auto !important;
+        height: auto !important;
+        max-height: 45px !important;
+        max-width: 45% !important;   /* Clave: asegura que quepan los dos */
+        margin: 0 2px !important;
+        vertical-align: middle !important;
+        position: static !important;
+    }
+    /* --- ARREGLO DE LOGOS (FIN) --- */
+
+    /* --- RESTO DE ESTILOS (TEXTOS, INPUTS) --- */
+    .web-view { display: none !important; }
+
+    .print-view {
+        display: block !important;
+        border: none !important;
+        background: transparent !important;
+        border-bottom: 1px solid #000 !important;
+        width: 100% !important;
+        padding: 0 5px !important;
+        margin: 0 !important;
+        font-family: inherit !important;
+        font-size: 11px !important;
+        line-height: 1.2;
+        min-height: 15px;
+    }
+
+    .input-line {
+        border: none !important;
+        border-bottom: 1px solid #000 !important;
+        background: transparent !important;
+        padding: 0 5px !important;
+        margin: 0 !important;
+        font-family: inherit !important;
+        font-size: 12px !important;
+        color: #000 !important;
+        height: auto !important;
+    }
+
+    label { font-weight: bold !important; color: #000 !important; }
+
+    input[type="radio"] {
+        appearance: auto !important;
+        -webkit-appearance: radio !important;
+        display: inline-block !important;
+    }
+
+    .document-header-print { display: block !important; border: none !important; }
+    .cintilla-table { border: 1px solid #000 !important; width: 100% !important; }
+    .cintilla-table td { border: 1px solid #000 !important; padding: 2px !important; }
+}

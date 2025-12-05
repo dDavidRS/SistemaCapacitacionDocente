@@ -1,0 +1,170 @@
+{% extends 'Sistema/layouts/menu_admin.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <meta charset="UTF-8">
+    <title>Registro General de Formación</title>
+    <link rel="stylesheet" href="{% static 'Sistema/css/registro/registro.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="registro-container main-content">
+
+        {# --- BOTÓN DE DESCARGA --- #}
+        {% if download_data %}
+            <div class="alert alert-success text-center shadow-sm web-only" style="border-left: 5px solid #1b396a; margin-bottom: 30px; padding: 20px; background-color: #d1e7dd;">
+                <h4 style="color: #1b396a; margin-top: 0;"><i class="fa-solid fa-circle-check"></i> ¡Guardado Exitosamente!</h4>
+                <p style="font-size: 14px; color: #0f5132;">El registro se ha actualizado. Puedes descargar la versión firmada aquí:</p>
+
+                <a href="{% url 'descargar_pdf' download_data.tipo download_data.pk %}"
+                   class="btn"
+                   style="background-color: #1b396a; color: white; border-radius: 50px; padding: 10px 30px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px;">
+                    <i class="fa-solid fa-file-pdf me-2"></i> Descargar PDF
+                </a>
+            </div>
+        {% endif %}
+
+        {# --- MENSAJES DE ERROR --- #}
+        {% if messages %}
+            {% for message in messages %}
+                {% if 'Guardado Exitosamente' not in message.message %}
+                <div class="alert alert-{{ message.tags }}" style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 20px; border: 1px solid #f5c6cb; border-radius: 5px;">
+                    {{ message }}
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST" class="registro-form-body">
+            {% csrf_token %}
+
+            {# --- CINTILLA ESTANDARIZADA --- #}
+            <header class="document-header-print">
+                <table class="cintilla-table">
+                    <tr>
+                        <td class="col-logos">
+                            <div class="logos-container">
+                                <img src="{% static 'Sistema/img/LogoTecnmChiquis.png' %}" alt="TecNM" class="logo-img logo-tecnm">
+                                <img src="{% static 'Sistema/img/LogoItrNoFondo.png' %}" alt="Tec Reynosa" class="logo-img logo-tec">
+                            </div>
+                        </td>
+                        <td class="col-center">
+                            <div class="center-content">
+                                <h1 class="cintilla-main-title">REGISTRO GENERAL DE FORMACIÓN DOCENTE Y ACTUALIZACIÓN PROFESIONAL</h1>
+                                <div class="cintilla-norma">Referencia a la Norma: ISO 9001:2015 7.2 7.3</div>
+                            </div>
+                        </td>
+                        <td class="col-meta">
+                            <div class="meta-row"><strong>Código:</strong> ITR-AC-F61</div>
+                            <div class="meta-row"><strong>Revisión: 4</strong></div>
+                            <div class="meta-row"><strong>Fecha de Emisión:<br>septiembre de 2022</strong></div>
+                            <div class="meta-row"><strong>Página:</strong> 1 de 1</div>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            {# --- TÍTULO INSTITUCIONAL --- #}
+            <div class="titles-container">
+                <h2 class="institute-title">INSTITUTO TECNOLÓGICO DE REYNOSA</h2>
+            </div>
+
+            {# --- TABLA DE REGISTRO --- #}
+            <section class="form-section">
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr class="header-gray">
+                                <th rowspan="2" width="3%">No.<br>(1)</th>
+                                <th rowspan="2" width="10%">Nombre del Instituto, unidad o centro (2)</th>
+                                <th rowspan="2" width="15%">Nombre del Curso (3)</th>
+                                <th colspan="2" width="12%">Clasificación del Servicio</th>
+                                <th rowspan="2" width="10%">Instructor (6)</th>
+                                <th rowspan="2" width="6%">Fecha Inicio (7)</th>
+                                <th rowspan="2" width="6%">Fecha Término (8)</th>
+                                <th rowspan="2" width="4%">Horas (9)</th>
+                                <th rowspan="2" width="6%">Presencial (P) /Distancia (D) /Mixto (M) (10)</th>
+                                <th rowspan="2" width="6%">No. de Docentes Inscritos (11)</th>
+                                <th rowspan="2" width="6%">No. de Docentes que terminaron el curso (12)</th>
+                                <th rowspan="2" width="6%">No. de docentes acreditados (13)</th>
+                                <th rowspan="2" width="5%">Interno (I) / Externo (E) (14)</th>
+                            </tr>
+                            <tr class="header-gray sub-header">
+                                <th>Formación Docente y/o Profesional (4)</th>
+                                <th>Actualización Docente y/o Profesional (5)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {# --- LÓGICA DUAL --- #}
+                            {% if tabla_registros %}
+                                {# VISTA PDF #}
+                                {% for fila in tabla_registros %}
+                                <tr>
+                                    <td><input type="text" class="input-clean center-text" value="{{fila.counter}}"></td>
+                                    <td><input type="text" class="input-clean" value="{{fila.instituto}}"></td>
+                                    <td><textarea class="input-clean" rows="1">{{fila.nombre_curso}}</textarea></td>
+                                    <td class="center-text"><input type="text" class="input-clean center-text" value="{{fila.es_formacion}}"></td>
+                                    <td class="center-text"><input type="text" class="input-clean center-text" value="{{fila.es_actualizacion}}"></td>
+                                    <td><textarea class="input-clean" rows="1">{{fila.instructor}}</textarea></td>
+                                    <td><input type="text" class="input-clean center-text" value="{{fila.fecha_inicio}}"></td>
+                                    <td><input type="text" class="input-clean center-text" value="{{fila.fecha_termino}}"></td>
+                                    <td><input type="text" class="input-clean center-text" value="{{fila.horas}}"></td>
+                                    <td><input type="text" class="input-clean center-text" value="{{fila.modalidad}}"></td>
+                                    <td><input type="text" class="input-clean center-text" value="{{fila.inscritos}}"></td>
+                                    <td><input type="text" class="input-clean center-text" value="{{fila.terminaron}}"></td>
+                                    <td><input type="text" class="input-clean center-text" value="{{fila.acreditados}}"></td>
+                                    <td><input type="text" class="input-clean center-text" value="{{fila.tipo}}"></td>
+                                </tr>
+                                {% endfor %}
+                            {% else %}
+                                {# VISTA WEB (CAPTURA) #}
+                                {% for i in "123456789012345" %}
+                                <tr>
+                                    <td><input type="text" name="no_{{forloop.counter}}" class="input-clean center-text" value="{{forloop.counter}}" readonly></td>
+                                    <td><input type="text" name="instituto_{{forloop.counter}}" class="input-clean" {% if forloop.first %}required{% endif %}></td>
+                                    <td><textarea name="curso_{{forloop.counter}}" rows="1" class="input-clean" {% if forloop.first %}required{% endif %}></textarea></td>
+                                    <td class="center-text"><input type="text" name="formacion_{{forloop.counter}}" class="input-clean center-text"></td>
+                                    <td class="center-text"><input type="text" name="actualizacion_{{forloop.counter}}" class="input-clean center-text"></td>
+                                    <td><textarea name="instructor_{{forloop.counter}}" rows="1" class="input-clean" {% if forloop.first %}required{% endif %}></textarea></td>
+                                    <td><input type="date" name="f_inicio_{{forloop.counter}}" class="input-clean center-text date-input" {% if forloop.first %}required{% endif %}></td>
+                                    <td><input type="date" name="f_termino_{{forloop.counter}}" class="input-clean center-text date-input" {% if forloop.first %}required{% endif %}></td>
+                                    <td><input type="number" name="horas_{{forloop.counter}}" class="input-clean center-text" {% if forloop.first %}required{% endif %}></td>
+                                    <td><input type="text" name="modalidad_{{forloop.counter}}" class="input-clean center-text" maxlength="1" {% if forloop.first %}required{% endif %}></td>
+                                    <td><input type="number" name="inscritos_{{forloop.counter}}" class="input-clean center-text" {% if forloop.first %}required{% endif %}></td>
+                                    <td><input type="number" name="terminaron_{{forloop.counter}}" class="input-clean center-text" {% if forloop.first %}required{% endif %}></td>
+                                    <td><input type="number" name="acreditados_{{forloop.counter}}" class="input-clean center-text" {% if forloop.first %}required{% endif %}></td>
+                                    <td><input type="text" name="tipo_{{forloop.counter}}" class="input-clean center-text" maxlength="1" {% if forloop.first %}required{% endif %}></td>
+                                </tr>
+                                {% endfor %}
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            {# --- PIE DE PÁGINA (FIRMAS) --- #}
+            <section class="footer-signatures mt-40">
+                <div class="sig-column left">
+                    <div class="sig-line"></div>
+                    <div class="sig-title">(15)<br>Nombre y Firma del Jefe (a) de Depto. de Desarrollo Académico</div>
+                </div>
+
+                <div class="sig-column center">
+                    <div class="seal-space"></div>
+                    <div class="sig-title">(17)<br>SELLO</div>
+                </div>
+
+                <div class="sig-column right">
+                    <div class="sig-line"></div>
+                    <div class="sig-title">(16)<br>Vo.Bo. Nombre y Firma del Subdirector (a) Académico (a)</div>
+                </div>
+            </section>
+
+            <div class="form-submit-row web-only">
+                <button type="submit">Guardar Registro</button>
+            </div>
+
+        </form>
+
+    </section>
+{% endblock %}

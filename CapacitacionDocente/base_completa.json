@@ -1,0 +1,2695 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-11-26T20:20:16.520Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "Administradores",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-11-26T20:22:27.816Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "1",
+    "object_repr": "Administradores",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-11-26T20:28:07.169Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "Instructores",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-11-26T20:37:03.331Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "Instructor1",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-11-26T20:41:30.500Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "3",
+    "object_repr": "Administradores",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-11-26T20:42:34.585Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "Denisse",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-11-26T20:43:25.980Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "Denisse",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-11-26T20:44:10.191Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "Instructores",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-11-26T20:44:13.265Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "Instructores",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-11-26T20:47:41.473Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "Denisse",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-11-26T20:47:49.244Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "2",
+    "object_repr": "Instructor1",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Groups\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-11-29T01:25:26.667Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "trrtrt",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-11-29T01:25:32.695Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "rtrtrtw",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-11-29T01:25:38.821Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "hregntghnrt",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-11-29T18:08:05.121Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "EncuestaSatisfaccion object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-12-03T19:53:45.311Z",
+    "user": 1,
+    "content_type": 3,
+    "object_id": "2",
+    "object_repr": "Instructores",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-12-03T20:20:32.955Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "3",
+    "object_repr": "Denisse",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-12-03T20:51:14.603Z",
+    "user": 1,
+    "content_type": 4,
+    "object_id": "4",
+    "object_repr": "Instructor2",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Instructores",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 3,
+  "fields": {
+    "name": "Administradores",
+    "permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$Ge7NWPLtWKyDQPzymrF63L$H5Q6+hEJDbUZfsMzkr6CkK4XWpHNvS6HHaQGixV8cJY=",
+    "last_login": "2025-12-03T20:50:17.625Z",
+    "is_superuser": true,
+    "username": "Rosy",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-26T20:13:36.748Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$jenyAIM7D7bUv2fTw87PtV$NB/iMk5dzxKwTbd93lNGuU+32U9EUED7RQ1RSzs5gPs=",
+    "last_login": "2025-12-03T20:53:48.269Z",
+    "is_superuser": false,
+    "username": "Instructor1",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-26T20:37:03Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$zwGVhJfhq9QPvIP0asplV6$qa4+yYITTZQK1ECQhdVX0CUhKtELQ0Drb5IENrYJqT8=",
+    "last_login": "2025-11-26T20:48:58Z",
+    "is_superuser": false,
+    "username": "Denisse",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-26T20:42:34Z",
+    "groups": [
+      3
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$36O6TKztEU6RhbiX7CF3mt$NTP00PqdcYTQHqVSTV8VpYR2skgmdEyHwAGTadMMnMw=",
+    "last_login": "2025-12-03T20:54:03.486Z",
+    "is_superuser": false,
+    "username": "Instructor2",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-12-03T20:51:14.297Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "im00veujihyv6932g1jyen4byqw8x99d",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEMZXi4dO83EB6DVA0kpV0Z_12bdKHbe865L-bDtla_DVr8nNmZKXb63WJID2o7yPfQbp2n3tZljnxX-EEHv_ZMz8vh_h3UMOq3lhEKgi4gLYJzshBpEia4aDW6LFBoNFEamMBkcJO2hM4oSogplaDY-wO9ADb-:1vQtrP:rJhYbncWOP59t_AxOcyOAg-Ij-Leg2YMyDf-bJRRDYA",
+    "expire_date": "2025-12-17T20:54:03.487Z"
+  }
+},
+{
+  "model": "Sistema.curso",
+  "pk": 1,
+  "fields": {
+    "nombre": "trrtrt",
+    "clave": "rtrtrt",
+    "instructor": "rtrtrt",
+    "periodo": "rtrtrt",
+    "estado": "pausa"
+  }
+},
+{
+  "model": "Sistema.curso",
+  "pk": 2,
+  "fields": {
+    "nombre": "rtrtrtw",
+    "clave": "www",
+    "instructor": "www",
+    "periodo": "www",
+    "estado": "pausa"
+  }
+},
+{
+  "model": "Sistema.curso",
+  "pk": 3,
+  "fields": {
+    "nombre": "hregntghnrt",
+    "clave": "fgnfgnfgn",
+    "instructor": "fgnfgnfgn",
+    "periodo": "fgnfgnfgn",
+    "estado": "cancelado"
+  }
+},
+{
+  "model": "Sistema.inscripcion",
+  "pk": 1,
+  "fields": {
+    "fecha": "2025-11-18",
+    "clave_curso": "dd",
+    "nombre_curso": "d",
+    "nombre_instructor": "d",
+    "periodo": "d",
+    "horario": "d",
+    "duracion": "d",
+    "genero": "hombre",
+    "nombre_completo": "d",
+    "rfc": "d",
+    "curp": "d",
+    "email": "d@gmail.com",
+    "grado_estudios": "Licenciatura",
+    "carrera": "d",
+    "instituto": "d",
+    "area_adscripcion": "Administrativa",
+    "puesto": "Docente",
+    "jefe_inmediato": "d",
+    "telefono": "d",
+    "extension": "d"
+  }
+},
+{
+  "model": "Sistema.inscripcion",
+  "pk": 2,
+  "fields": {
+    "fecha": "2025-11-30",
+    "clave_curso": "dd",
+    "nombre_curso": "d",
+    "nombre_instructor": "d",
+    "periodo": "d",
+    "horario": "d",
+    "duracion": "d",
+    "genero": "mujer",
+    "nombre_completo": "d",
+    "rfc": "d",
+    "curp": "d",
+    "email": "d@gmail.com",
+    "grado_estudios": "Licenciatura",
+    "carrera": "d",
+    "instituto": "d",
+    "area_adscripcion": "Sistemas",
+    "puesto": "Administrativo",
+    "jefe_inmediato": "d",
+    "telefono": "d",
+    "extension": "d"
+  }
+},
+{
+  "model": "Sistema.inscripcion",
+  "pk": 3,
+  "fields": {
+    "fecha": "2025-11-30",
+    "clave_curso": "dd",
+    "nombre_curso": "d",
+    "nombre_instructor": "d",
+    "periodo": "d",
+    "horario": "d",
+    "duracion": "d",
+    "genero": "hombre",
+    "nombre_completo": "d",
+    "rfc": "d",
+    "curp": "d",
+    "email": "d@gmail.com",
+    "grado_estudios": "Licenciatura",
+    "carrera": "d",
+    "instituto": "d",
+    "area_adscripcion": "Electronica",
+    "puesto": "Jefe de Departamento",
+    "jefe_inmediato": "d",
+    "telefono": "d",
+    "extension": "d"
+  }
+},
+{
+  "model": "Sistema.fichatecnica",
+  "pk": 1,
+  "fields": {
+    "nombre_curso": "mnmmm",
+    "instructor": "mmm",
+    "introduccion": "mm",
+    "justificacion": "mm",
+    "objetivo_general": "mm",
+    "desc_duracion": "mm",
+    "desc_contenido": "mm",
+    "desc_materiales": "mmm",
+    "desc_criterios": "mmmmm",
+    "resultados": "mm",
+    "fuentes_informacion": "mm"
+  }
+},
+{
+  "model": "Sistema.fichatecnica",
+  "pk": 2,
+  "fields": {
+    "nombre_curso": "mnmmm",
+    "instructor": "mmm",
+    "introduccion": "d",
+    "justificacion": "d",
+    "objetivo_general": "d",
+    "desc_duracion": "mm",
+    "desc_contenido": "mm",
+    "desc_materiales": "mmm",
+    "desc_criterios": "mmmmm",
+    "resultados": "d",
+    "fuentes_informacion": "d"
+  }
+},
+{
+  "model": "Sistema.fichatecnica",
+  "pk": 3,
+  "fields": {
+    "nombre_curso": "ss",
+    "instructor": "ss",
+    "introduccion": "s",
+    "justificacion": "s",
+    "objetivo_general": "s",
+    "desc_duracion": "s",
+    "desc_contenido": "s",
+    "desc_materiales": "s",
+    "desc_criterios": "s",
+    "resultados": "s",
+    "fuentes_informacion": "s"
+  }
+},
+{
+  "model": "Sistema.fichatecnica",
+  "pk": 4,
+  "fields": {
+    "nombre_curso": "ss",
+    "instructor": "ss",
+    "introduccion": "s",
+    "justificacion": "s",
+    "objetivo_general": "s",
+    "desc_duracion": "s",
+    "desc_contenido": "s",
+    "desc_materiales": "s",
+    "desc_criterios": "s",
+    "resultados": "s",
+    "fuentes_informacion": "s"
+  }
+},
+{
+  "model": "Sistema.criteriosseleccion",
+  "pk": 1,
+  "fields": {
+    "nombre_instructor": "x",
+    "fecha_evaluacion": "2025-11-11",
+    "nombre_curso": "x",
+    "empresa": "x",
+    "criterio_1": 1,
+    "criterio_2": 2,
+    "criterio_3": 3,
+    "criterio_4": 4,
+    "criterio_5": 5,
+    "total_puntaje": 15,
+    "aceptado": "si"
+  }
+},
+{
+  "model": "Sistema.criteriosseleccion",
+  "pk": 2,
+  "fields": {
+    "nombre_instructor": "x",
+    "fecha_evaluacion": "2025-11-12",
+    "nombre_curso": "x",
+    "empresa": "x",
+    "criterio_1": 1,
+    "criterio_2": 2,
+    "criterio_3": 3,
+    "criterio_4": 2,
+    "criterio_5": 1,
+    "total_puntaje": 9,
+    "aceptado": "no"
+  }
+},
+{
+  "model": "Sistema.encuestasatisfaccion",
+  "pk": 1,
+  "fields": {
+    "nombre_curso": "reerer",
+    "fecha": "2025-11-29",
+    "clave": "rtrtrt",
+    "duracion": "fef",
+    "institucion": "erre",
+    "facilitador": "rerer",
+    "periodo": "er",
+    "horario": "er",
+    "q1": 2,
+    "q2": 2,
+    "q3": 2,
+    "q4": 3,
+    "q5": 3,
+    "q6": 3,
+    "q7": 3,
+    "q8": 3,
+    "q9": 3,
+    "q10": 3,
+    "q11": 3,
+    "q12": 3,
+    "q13": 3,
+    "q14": 3,
+    "q15": 3,
+    "q16": 3,
+    "q17": 3,
+    "q18": 3,
+    "q19": 3,
+    "q20": 3,
+    "comentarios": "rrrrr"
+  }
+},
+{
+  "model": "Sistema.encuestasatisfaccion",
+  "pk": 2,
+  "fields": {
+    "nombre_curso": "d",
+    "fecha": "2025-11-30",
+    "clave": "www",
+    "duracion": "fef",
+    "institucion": "s",
+    "facilitador": "rerer",
+    "periodo": "d",
+    "horario": "d",
+    "q1": 5,
+    "q2": 4,
+    "q3": 3,
+    "q4": 2,
+    "q5": 2,
+    "q6": 2,
+    "q7": 3,
+    "q8": 3,
+    "q9": 3,
+    "q10": 3,
+    "q11": 4,
+    "q12": 3,
+    "q13": 2,
+    "q14": 1,
+    "q15": 3,
+    "q16": 3,
+    "q17": 3,
+    "q18": 3,
+    "q19": 3,
+    "q20": 3,
+    "comentarios": "uhuhuhuh"
+  }
+},
+{
+  "model": "Sistema.encuestasatisfaccion",
+  "pk": 3,
+  "fields": {
+    "nombre_curso": "d",
+    "fecha": "2025-11-30",
+    "clave": "www",
+    "duracion": "fef",
+    "institucion": "s",
+    "facilitador": "rerer",
+    "periodo": "d",
+    "horario": "d",
+    "q1": 4,
+    "q2": 4,
+    "q3": 4,
+    "q4": 4,
+    "q5": 4,
+    "q6": 4,
+    "q7": 4,
+    "q8": 3,
+    "q9": 3,
+    "q10": 3,
+    "q11": 3,
+    "q12": 3,
+    "q13": 3,
+    "q14": 3,
+    "q15": 3,
+    "q16": 3,
+    "q17": 3,
+    "q18": 3,
+    "q19": 3,
+    "q20": 3,
+    "comentarios": "f"
+  }
+},
+{
+  "model": "Sistema.encuestasatisfaccion",
+  "pk": 4,
+  "fields": {
+    "nombre_curso": "d",
+    "fecha": "2025-11-30",
+    "clave": "www",
+    "duracion": "fef",
+    "institucion": "s",
+    "facilitador": "rerer",
+    "periodo": "d",
+    "horario": "d",
+    "q1": 4,
+    "q2": 4,
+    "q3": 4,
+    "q4": 4,
+    "q5": 4,
+    "q6": 4,
+    "q7": 4,
+    "q8": 4,
+    "q9": 4,
+    "q10": 4,
+    "q11": 3,
+    "q12": 3,
+    "q13": 3,
+    "q14": 3,
+    "q15": 3,
+    "q16": 3,
+    "q17": 3,
+    "q18": 3,
+    "q19": 3,
+    "q20": 3,
+    "comentarios": ""
+  }
+},
+{
+  "model": "Sistema.encuestasatisfaccion",
+  "pk": 5,
+  "fields": {
+    "nombre_curso": "d",
+    "fecha": "2025-11-30",
+    "clave": "www",
+    "duracion": "fef",
+    "institucion": "s",
+    "facilitador": "rerer",
+    "periodo": "d",
+    "horario": "d",
+    "q1": 3,
+    "q2": 3,
+    "q3": 3,
+    "q4": 3,
+    "q5": 3,
+    "q6": 3,
+    "q7": 3,
+    "q8": 3,
+    "q9": 3,
+    "q10": 3,
+    "q11": 4,
+    "q12": 4,
+    "q13": 4,
+    "q14": 4,
+    "q15": 3,
+    "q16": 3,
+    "q17": 3,
+    "q18": 3,
+    "q19": 3,
+    "q20": 3,
+    "comentarios": ""
+  }
+},
+{
+  "model": "Sistema.encuestasatisfaccion",
+  "pk": 6,
+  "fields": {
+    "nombre_curso": "d",
+    "fecha": "2025-11-30",
+    "clave": "www",
+    "duracion": "fef",
+    "institucion": "s",
+    "facilitador": "rerer",
+    "periodo": "d",
+    "horario": "d",
+    "q1": 1,
+    "q2": 1,
+    "q3": 1,
+    "q4": 1,
+    "q5": 1,
+    "q6": 1,
+    "q7": 1,
+    "q8": 1,
+    "q9": 1,
+    "q10": 1,
+    "q11": 1,
+    "q12": 1,
+    "q13": 1,
+    "q14": 1,
+    "q15": 1,
+    "q16": 1,
+    "q17": 1,
+    "q18": 1,
+    "q19": 1,
+    "q20": 1,
+    "comentarios": ""
+  }
+},
+{
+  "model": "Sistema.registrogeneral",
+  "pk": 1,
+  "fields": {
+    "periodo": "2025",
+    "fecha_creacion": "2025-12-01T00:00:34.029Z",
+    "jefe_desarrollo": "Ing. Juan Perez",
+    "subdirector": "Lic. Maria Lopez"
+  }
+},
+{
+  "model": "Sistema.registrofila",
+  "pk": 1,
+  "fields": {
+    "registro": 1,
+    "no_consecutivo": 1,
+    "instituto": "q",
+    "nombre_curso": "q",
+    "es_formacion": true,
+    "es_actualizacion": true,
+    "instructor": "q",
+    "fecha_inicio": "2025-11-13",
+    "fecha_termino": "2025-11-04",
+    "horas": 1,
+    "modalidad": "1",
+    "docentes_inscritos": 1,
+    "docentes_terminaron": 1,
+    "docentes_acreditados": 1,
+    "tipo": "q"
+  }
+},
+{
+  "model": "Sistema.registrofila",
+  "pk": 2,
+  "fields": {
+    "registro": 1,
+    "no_consecutivo": 2,
+    "instituto": "q",
+    "nombre_curso": "q",
+    "es_formacion": true,
+    "es_actualizacion": true,
+    "instructor": "q",
+    "fecha_inicio": "2025-10-29",
+    "fecha_termino": "2025-11-04",
+    "horas": 1,
+    "modalidad": "1",
+    "docentes_inscritos": 1,
+    "docentes_terminaron": 1,
+    "docentes_acreditados": 1,
+    "tipo": "q"
+  }
+},
+{
+  "model": "Sistema.programainstitucional",
+  "pk": 1,
+  "fields": {
+    "periodo": "dfdfdf",
+    "elaboro_nombre": "dfssdsdf",
+    "elaboro_fecha": "2025-11-30",
+    "aprobo_nombre": "sdffdsf",
+    "aprobo_fecha": "2025-11-30",
+    "fecha_creacion": "2025-11-30T22:31:32.034Z"
+  }
+},
+{
+  "model": "Sistema.programainstitucional",
+  "pk": 2,
+  "fields": {
+    "periodo": "dfdfdf",
+    "elaboro_nombre": "h",
+    "elaboro_fecha": "2025-11-30",
+    "aprobo_nombre": "h",
+    "aprobo_fecha": "2025-11-30",
+    "fecha_creacion": "2025-11-30T22:33:23.922Z"
+  }
+},
+{
+  "model": "Sistema.programainstitucional",
+  "pk": 3,
+  "fields": {
+    "periodo": "dfdfdf",
+    "elaboro_nombre": "h",
+    "elaboro_fecha": "2025-11-30",
+    "aprobo_nombre": "h",
+    "aprobo_fecha": "2025-11-30",
+    "fecha_creacion": "2025-11-30T22:34:30.912Z"
+  }
+},
+{
+  "model": "Sistema.programadetalle",
+  "pk": 1,
+  "fields": {
+    "programa": 1,
+    "no_consecutivo": 1,
+    "nombre_curso": "fgdfgs",
+    "objetivo": "dfsfdfs",
+    "periodo_realizacion": "dfdfsdfs",
+    "lugar": "dfsdfs",
+    "horas": 3,
+    "instructor": "dfsdfs",
+    "dirigido_a": "dfsdfs",
+    "observaciones": "dfsdfs"
+  }
+},
+{
+  "model": "Sistema.programadetalle",
+  "pk": 2,
+  "fields": {
+    "programa": 2,
+    "no_consecutivo": 1,
+    "nombre_curso": "dff",
+    "objetivo": "dfdf",
+    "periodo_realizacion": "dffd",
+    "lugar": "dfdf",
+    "horas": 3,
+    "instructor": "dfdfdf",
+    "dirigido_a": "dfdf",
+    "observaciones": "dfdfdf"
+  }
+},
+{
+  "model": "Sistema.programadetalle",
+  "pk": 3,
+  "fields": {
+    "programa": 2,
+    "no_consecutivo": 2,
+    "nombre_curso": "df",
+    "objetivo": "fdffd",
+    "periodo_realizacion": "dffddf",
+    "lugar": "df",
+    "horas": 1,
+    "instructor": "dfdf",
+    "dirigido_a": "fddfdfdf",
+    "observaciones": "fddf"
+  }
+},
+{
+  "model": "Sistema.programadetalle",
+  "pk": 4,
+  "fields": {
+    "programa": 2,
+    "no_consecutivo": 3,
+    "nombre_curso": "dfdf",
+    "objetivo": "fffdf",
+    "periodo_realizacion": "f",
+    "lugar": "f",
+    "horas": 1,
+    "instructor": "f",
+    "dirigido_a": "f",
+    "observaciones": "ff"
+  }
+},
+{
+  "model": "Sistema.programadetalle",
+  "pk": 5,
+  "fields": {
+    "programa": 3,
+    "no_consecutivo": 1,
+    "nombre_curso": "dff",
+    "objetivo": "dfdf",
+    "periodo_realizacion": "dffd",
+    "lugar": "dfdf",
+    "horas": 3,
+    "instructor": "dfdfdf",
+    "dirigido_a": "dfdf",
+    "observaciones": "dfdfdf"
+  }
+},
+{
+  "model": "Sistema.programadetalle",
+  "pk": 6,
+  "fields": {
+    "programa": 3,
+    "no_consecutivo": 2,
+    "nombre_curso": "df",
+    "objetivo": "fdffd",
+    "periodo_realizacion": "dffddf",
+    "lugar": "df",
+    "horas": 1,
+    "instructor": "dfdf",
+    "dirigido_a": "fddfdfdf",
+    "observaciones": "fddf"
+  }
+},
+{
+  "model": "Sistema.programadetalle",
+  "pk": 7,
+  "fields": {
+    "programa": 3,
+    "no_consecutivo": 3,
+    "nombre_curso": "dfdf",
+    "objetivo": "fffdf",
+    "periodo_realizacion": "f",
+    "lugar": "f",
+    "horas": 1,
+    "instructor": "f",
+    "dirigido_a": "f",
+    "observaciones": "ff"
+  }
+},
+{
+  "model": "Sistema.programadetalle",
+  "pk": 8,
+  "fields": {
+    "programa": 3,
+    "no_consecutivo": 4,
+    "nombre_curso": "f",
+    "objetivo": "f",
+    "periodo_realizacion": "f",
+    "lugar": "fff",
+    "horas": 2,
+    "instructor": "f",
+    "dirigido_a": "fh",
+    "observaciones": "h"
+  }
+},
+{
+  "model": "Sistema.programadetalle",
+  "pk": 9,
+  "fields": {
+    "programa": 3,
+    "no_consecutivo": 5,
+    "nombre_curso": "h",
+    "objetivo": "h",
+    "periodo_realizacion": "h",
+    "lugar": "h",
+    "horas": 2,
+    "instructor": "h",
+    "dirigido_a": "h",
+    "observaciones": "h"
+  }
+},
+{
+  "model": "Sistema.programadetalle",
+  "pk": 10,
+  "fields": {
+    "programa": 3,
+    "no_consecutivo": 6,
+    "nombre_curso": "h",
+    "objetivo": "h",
+    "periodo_realizacion": "h",
+    "lugar": "h",
+    "horas": 2,
+    "instructor": "h",
+    "dirigido_a": "h",
+    "observaciones": "h"
+  }
+},
+{
+  "model": "Sistema.programadetalle",
+  "pk": 11,
+  "fields": {
+    "programa": 3,
+    "no_consecutivo": 7,
+    "nombre_curso": "h",
+    "objetivo": "h",
+    "periodo_realizacion": "h",
+    "lugar": "h",
+    "horas": 2,
+    "instructor": "h",
+    "dirigido_a": "h",
+    "observaciones": "h"
+  }
+},
+{
+  "model": "Sistema.programadetalle",
+  "pk": 12,
+  "fields": {
+    "programa": 3,
+    "no_consecutivo": 8,
+    "nombre_curso": "h",
+    "objetivo": "h",
+    "periodo_realizacion": "h",
+    "lugar": "h",
+    "horas": 2,
+    "instructor": "h",
+    "dirigido_a": "h",
+    "observaciones": "h"
+  }
+},
+{
+  "model": "Sistema.programadetalle",
+  "pk": 13,
+  "fields": {
+    "programa": 3,
+    "no_consecutivo": 9,
+    "nombre_curso": "h",
+    "objetivo": "h",
+    "periodo_realizacion": "h",
+    "lugar": "h",
+    "horas": 2,
+    "instructor": "h",
+    "dirigido_a": "h",
+    "observaciones": "h"
+  }
+},
+{
+  "model": "Sistema.programadetalle",
+  "pk": 14,
+  "fields": {
+    "programa": 3,
+    "no_consecutivo": 10,
+    "nombre_curso": "h",
+    "objetivo": "h",
+    "periodo_realizacion": "h",
+    "lugar": "h",
+    "horas": 2,
+    "instructor": "h",
+    "dirigido_a": "h",
+    "observaciones": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticonecesidades",
+  "pk": 1,
+  "fields": {
+    "departamento_academico": "ggggg",
+    "carrera": "gggg",
+    "dept_origen": "ggg",
+    "fecha_realizacion": "2025-11-12",
+    "jefe_nombre": "ggg",
+    "presidente_nombre": "gggg",
+    "secretario_nombre": "gggggg",
+    "fecha_concentrado": "2025-11-30",
+    "subdirector_nombre": "h",
+    "jefe1_nombre": "",
+    "jefe1_depto": "",
+    "jefe2_nombre": "",
+    "jefe2_depto": "",
+    "jefe3_nombre": "",
+    "jefe3_depto": "",
+    "jefe4_nombre": "",
+    "jefe4_depto": "",
+    "created_at": "2025-11-30T22:40:57.643Z"
+  }
+},
+{
+  "model": "Sistema.diagnosticonecesidades",
+  "pk": 2,
+  "fields": {
+    "departamento_academico": "ggggg",
+    "carrera": "gggg",
+    "dept_origen": "ggg",
+    "fecha_realizacion": "2025-11-30",
+    "jefe_nombre": "ggg",
+    "presidente_nombre": "gggg",
+    "secretario_nombre": "gggggg",
+    "fecha_concentrado": "2025-11-30",
+    "subdirector_nombre": "h",
+    "jefe1_nombre": "",
+    "jefe1_depto": "",
+    "jefe2_nombre": "",
+    "jefe2_depto": "",
+    "jefe3_nombre": "",
+    "jefe3_depto": "",
+    "jefe4_nombre": "",
+    "jefe4_depto": "",
+    "created_at": "2025-11-30T22:44:17.880Z"
+  }
+},
+{
+  "model": "Sistema.diagnosticonecesidades",
+  "pk": 3,
+  "fields": {
+    "departamento_academico": "ggggg",
+    "carrera": "gggg",
+    "dept_origen": "ggg",
+    "fecha_realizacion": "2025-11-30",
+    "jefe_nombre": "ggg",
+    "presidente_nombre": "gggg",
+    "secretario_nombre": "gggggg",
+    "fecha_concentrado": "2025-11-30",
+    "subdirector_nombre": "h",
+    "jefe1_nombre": "",
+    "jefe1_depto": "",
+    "jefe2_nombre": "",
+    "jefe2_depto": "",
+    "jefe3_nombre": "",
+    "jefe3_depto": "",
+    "jefe4_nombre": "",
+    "jefe4_depto": "",
+    "created_at": "2025-11-30T22:49:34.074Z"
+  }
+},
+{
+  "model": "Sistema.diagnosticonecesidades",
+  "pk": 4,
+  "fields": {
+    "departamento_academico": "ggggg",
+    "carrera": "gggg",
+    "dept_origen": "ggg",
+    "fecha_realizacion": "2025-11-30",
+    "jefe_nombre": "ggg",
+    "presidente_nombre": "gggg",
+    "secretario_nombre": "gggggg",
+    "fecha_concentrado": "2025-11-30",
+    "subdirector_nombre": "h",
+    "jefe1_nombre": "h",
+    "jefe1_depto": "h",
+    "jefe2_nombre": "h",
+    "jefe2_depto": "h",
+    "jefe3_nombre": "h",
+    "jefe3_depto": "h",
+    "jefe4_nombre": "h",
+    "jefe4_depto": "h",
+    "created_at": "2025-11-30T23:00:51.298Z"
+  }
+},
+{
+  "model": "Sistema.diagnosticonecesidades",
+  "pk": 5,
+  "fields": {
+    "departamento_academico": "ggggg",
+    "carrera": "gggg",
+    "dept_origen": "ggg",
+    "fecha_realizacion": "2025-11-30",
+    "jefe_nombre": "ggg",
+    "presidente_nombre": "gggg",
+    "secretario_nombre": "gggggg",
+    "fecha_concentrado": "2025-11-30",
+    "subdirector_nombre": "h",
+    "jefe1_nombre": "h",
+    "jefe1_depto": "h",
+    "jefe2_nombre": "h",
+    "jefe2_depto": "h",
+    "jefe3_nombre": "h",
+    "jefe3_depto": "h",
+    "jefe4_nombre": "h",
+    "jefe4_depto": "h",
+    "created_at": "2025-11-30T23:11:26.741Z"
+  }
+},
+{
+  "model": "Sistema.diagnosticonecesidades",
+  "pk": 6,
+  "fields": {
+    "departamento_academico": "ggggg",
+    "carrera": "gggg",
+    "dept_origen": "ggg",
+    "fecha_realizacion": "2025-11-30",
+    "jefe_nombre": "ggg",
+    "presidente_nombre": "gggg",
+    "secretario_nombre": "gggggg",
+    "fecha_concentrado": "2025-11-30",
+    "subdirector_nombre": "h",
+    "jefe1_nombre": "h",
+    "jefe1_depto": "h",
+    "jefe2_nombre": "h",
+    "jefe2_depto": "h",
+    "jefe3_nombre": "h",
+    "jefe3_depto": "h",
+    "jefe4_nombre": "h",
+    "jefe4_depto": "h",
+    "created_at": "2025-11-30T23:12:07.841Z"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 1,
+  "fields": {
+    "diagnostico": 1,
+    "tipo_tabla": "generica",
+    "asignatura": "g",
+    "contenido": "g",
+    "num_profesores": 1,
+    "periodo": "g",
+    "instructor_propuesto": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 2,
+  "fields": {
+    "diagnostico": 1,
+    "tipo_tabla": "generica",
+    "asignatura": "g",
+    "contenido": "g",
+    "num_profesores": 1,
+    "periodo": "g",
+    "instructor_propuesto": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 3,
+  "fields": {
+    "diagnostico": 1,
+    "tipo_tabla": "generica",
+    "asignatura": "g",
+    "contenido": "g",
+    "num_profesores": -1,
+    "periodo": "g",
+    "instructor_propuesto": "gg"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 4,
+  "fields": {
+    "diagnostico": 1,
+    "tipo_tabla": "especialidad",
+    "asignatura": "g",
+    "contenido": "g",
+    "num_profesores": 2,
+    "periodo": "g",
+    "instructor_propuesto": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 5,
+  "fields": {
+    "diagnostico": 1,
+    "tipo_tabla": "especialidad",
+    "asignatura": "g",
+    "contenido": "g",
+    "num_profesores": 3,
+    "periodo": "g",
+    "instructor_propuesto": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 6,
+  "fields": {
+    "diagnostico": 1,
+    "tipo_tabla": "especialidad",
+    "asignatura": "g",
+    "contenido": "g",
+    "num_profesores": 3,
+    "periodo": "g",
+    "instructor_propuesto": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 7,
+  "fields": {
+    "diagnostico": 2,
+    "tipo_tabla": "generica",
+    "asignatura": "d",
+    "contenido": "d",
+    "num_profesores": 2,
+    "periodo": "d",
+    "instructor_propuesto": "d"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 8,
+  "fields": {
+    "diagnostico": 2,
+    "tipo_tabla": "generica",
+    "asignatura": "d",
+    "contenido": "d",
+    "num_profesores": 1,
+    "periodo": "g",
+    "instructor_propuesto": "d"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 9,
+  "fields": {
+    "diagnostico": 2,
+    "tipo_tabla": "generica",
+    "asignatura": "dd",
+    "contenido": "dd",
+    "num_profesores": -1,
+    "periodo": "g",
+    "instructor_propuesto": "d"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 10,
+  "fields": {
+    "diagnostico": 3,
+    "tipo_tabla": "generica",
+    "asignatura": "y",
+    "contenido": "y",
+    "num_profesores": 2,
+    "periodo": "d",
+    "instructor_propuesto": "y"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 11,
+  "fields": {
+    "diagnostico": 3,
+    "tipo_tabla": "generica",
+    "asignatura": "y",
+    "contenido": "y",
+    "num_profesores": 1,
+    "periodo": "g",
+    "instructor_propuesto": "y"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 12,
+  "fields": {
+    "diagnostico": 3,
+    "tipo_tabla": "generica",
+    "asignatura": "y",
+    "contenido": "y",
+    "num_profesores": -1,
+    "periodo": "g",
+    "instructor_propuesto": "y"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 13,
+  "fields": {
+    "diagnostico": 3,
+    "tipo_tabla": "especialidad",
+    "asignatura": "y",
+    "contenido": "y",
+    "num_profesores": 2,
+    "periodo": "g",
+    "instructor_propuesto": "y"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 14,
+  "fields": {
+    "diagnostico": 3,
+    "tipo_tabla": "especialidad",
+    "asignatura": "y",
+    "contenido": "y",
+    "num_profesores": 3,
+    "periodo": "g",
+    "instructor_propuesto": "y"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 15,
+  "fields": {
+    "diagnostico": 3,
+    "tipo_tabla": "especialidad",
+    "asignatura": "y",
+    "contenido": "y",
+    "num_profesores": 3,
+    "periodo": "g",
+    "instructor_propuesto": "y"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 16,
+  "fields": {
+    "diagnostico": 4,
+    "tipo_tabla": "generica",
+    "asignatura": "t",
+    "contenido": "t",
+    "num_profesores": 2,
+    "periodo": "d",
+    "instructor_propuesto": "t"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 17,
+  "fields": {
+    "diagnostico": 4,
+    "tipo_tabla": "generica",
+    "asignatura": "t",
+    "contenido": "t",
+    "num_profesores": 1,
+    "periodo": "g",
+    "instructor_propuesto": "t"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 18,
+  "fields": {
+    "diagnostico": 4,
+    "tipo_tabla": "generica",
+    "asignatura": "t",
+    "contenido": "t",
+    "num_profesores": -1,
+    "periodo": "g",
+    "instructor_propuesto": "t"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 19,
+  "fields": {
+    "diagnostico": 4,
+    "tipo_tabla": "especialidad",
+    "asignatura": "t",
+    "contenido": "t",
+    "num_profesores": 2,
+    "periodo": "g",
+    "instructor_propuesto": "t"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 20,
+  "fields": {
+    "diagnostico": 4,
+    "tipo_tabla": "especialidad",
+    "asignatura": "t",
+    "contenido": "t",
+    "num_profesores": 3,
+    "periodo": "g",
+    "instructor_propuesto": "t"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 21,
+  "fields": {
+    "diagnostico": 4,
+    "tipo_tabla": "especialidad",
+    "asignatura": "tt",
+    "contenido": "t",
+    "num_profesores": 3,
+    "periodo": "g",
+    "instructor_propuesto": "t"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 22,
+  "fields": {
+    "diagnostico": 6,
+    "tipo_tabla": "generica",
+    "asignatura": "s",
+    "contenido": "s",
+    "num_profesores": 2,
+    "periodo": "d",
+    "instructor_propuesto": "s"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 23,
+  "fields": {
+    "diagnostico": 6,
+    "tipo_tabla": "generica",
+    "asignatura": "s",
+    "contenido": "s",
+    "num_profesores": 1,
+    "periodo": "g",
+    "instructor_propuesto": "s"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 24,
+  "fields": {
+    "diagnostico": 6,
+    "tipo_tabla": "generica",
+    "asignatura": "s",
+    "contenido": "ss",
+    "num_profesores": -1,
+    "periodo": "g",
+    "instructor_propuesto": "s"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 25,
+  "fields": {
+    "diagnostico": 6,
+    "tipo_tabla": "especialidad",
+    "asignatura": "s",
+    "contenido": "s",
+    "num_profesores": 2,
+    "periodo": "g",
+    "instructor_propuesto": "s"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 26,
+  "fields": {
+    "diagnostico": 6,
+    "tipo_tabla": "especialidad",
+    "asignatura": "s",
+    "contenido": "s",
+    "num_profesores": 3,
+    "periodo": "g",
+    "instructor_propuesto": "s"
+  }
+},
+{
+  "model": "Sistema.diagnosticoasignatura",
+  "pk": 27,
+  "fields": {
+    "diagnostico": 6,
+    "tipo_tabla": "especialidad",
+    "asignatura": "s",
+    "contenido": "s",
+    "num_profesores": 3,
+    "periodo": "g",
+    "instructor_propuesto": "s"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 1,
+  "fields": {
+    "diagnostico": 1,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 2,
+  "fields": {
+    "diagnostico": 1,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 3,
+  "fields": {
+    "diagnostico": 1,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "gh"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 4,
+  "fields": {
+    "diagnostico": 1,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 5,
+  "fields": {
+    "diagnostico": 1,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 6,
+  "fields": {
+    "diagnostico": 1,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 7,
+  "fields": {
+    "diagnostico": 2,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 8,
+  "fields": {
+    "diagnostico": 2,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 9,
+  "fields": {
+    "diagnostico": 2,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "gh"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 10,
+  "fields": {
+    "diagnostico": 2,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 11,
+  "fields": {
+    "diagnostico": 2,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 12,
+  "fields": {
+    "diagnostico": 2,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 13,
+  "fields": {
+    "diagnostico": 3,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 14,
+  "fields": {
+    "diagnostico": 3,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 15,
+  "fields": {
+    "diagnostico": 3,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "gh"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 16,
+  "fields": {
+    "diagnostico": 3,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 17,
+  "fields": {
+    "diagnostico": 3,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 18,
+  "fields": {
+    "diagnostico": 3,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 19,
+  "fields": {
+    "diagnostico": 4,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 20,
+  "fields": {
+    "diagnostico": 4,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 21,
+  "fields": {
+    "diagnostico": 4,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "gh"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 22,
+  "fields": {
+    "diagnostico": 4,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 23,
+  "fields": {
+    "diagnostico": 4,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 24,
+  "fields": {
+    "diagnostico": 4,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 25,
+  "fields": {
+    "diagnostico": 5,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 26,
+  "fields": {
+    "diagnostico": 5,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 27,
+  "fields": {
+    "diagnostico": 5,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "gh"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 28,
+  "fields": {
+    "diagnostico": 5,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 29,
+  "fields": {
+    "diagnostico": 5,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 30,
+  "fields": {
+    "diagnostico": 5,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 31,
+  "fields": {
+    "diagnostico": 6,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 32,
+  "fields": {
+    "diagnostico": 6,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "g"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 33,
+  "fields": {
+    "diagnostico": 6,
+    "tipo_tabla": "docente",
+    "actividad": "g",
+    "carrera_atendida": "g",
+    "fecha_evento": "gh"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 34,
+  "fields": {
+    "diagnostico": 6,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 35,
+  "fields": {
+    "diagnostico": 6,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.diagnosticoactividad",
+  "pk": 36,
+  "fields": {
+    "diagnostico": 6,
+    "tipo_tabla": "profesional",
+    "actividad": "h",
+    "carrera_atendida": "h",
+    "fecha_evento": "h"
+  }
+},
+{
+  "model": "Sistema.curriculumvitae",
+  "pk": 1,
+  "fields": {
+    "nombre": "d",
+    "fecha_nacimiento": "2025-11-21",
+    "curp": "d",
+    "rfc": "d",
+    "telefono": "d",
+    "correo": "d@gmail.com",
+    "lic_institucion": "d",
+    "lic_titulacion": "d",
+    "lic_cedula": "d",
+    "maestria_institucion": "d",
+    "maestria_titulacion": "d",
+    "maestria_cedula": "d",
+    "doc_institucion": "",
+    "doc_titulacion": "",
+    "doc_cedula": "",
+    "esp_institucion": "",
+    "esp_titulacion": "",
+    "esp_cedula": "",
+    "otros_institucion": "",
+    "otros_titulacion": "",
+    "otros_cedula": ""
+  }
+},
+{
+  "model": "Sistema.curriculumvitae",
+  "pk": 2,
+  "fields": {
+    "nombre": "d",
+    "fecha_nacimiento": "2025-11-21",
+    "curp": "d",
+    "rfc": "d",
+    "telefono": "d",
+    "correo": "d@gmail.com",
+    "lic_institucion": "d",
+    "lic_titulacion": "d",
+    "lic_cedula": "d",
+    "maestria_institucion": "d",
+    "maestria_titulacion": "d",
+    "maestria_cedula": "d",
+    "doc_institucion": "",
+    "doc_titulacion": "",
+    "doc_cedula": "",
+    "esp_institucion": "",
+    "esp_titulacion": "",
+    "esp_cedula": "",
+    "otros_institucion": "",
+    "otros_titulacion": "",
+    "otros_cedula": ""
+  }
+},
+{
+  "model": "Sistema.curriculumvitae",
+  "pk": 3,
+  "fields": {
+    "nombre": "d",
+    "fecha_nacimiento": "2025-11-21",
+    "curp": "d",
+    "rfc": "d",
+    "telefono": "d",
+    "correo": "d@gmail.com",
+    "lic_institucion": "d",
+    "lic_titulacion": "d",
+    "lic_cedula": "d",
+    "maestria_institucion": "d",
+    "maestria_titulacion": "d",
+    "maestria_cedula": "d",
+    "doc_institucion": "",
+    "doc_titulacion": "",
+    "doc_cedula": "",
+    "esp_institucion": "",
+    "esp_titulacion": "",
+    "esp_cedula": "",
+    "otros_institucion": "",
+    "otros_titulacion": "",
+    "otros_cedula": ""
+  }
+},
+{
+  "model": "Sistema.cvexperiencialaboral",
+  "pk": 1,
+  "fields": {
+    "cv": 1,
+    "puesto": "d",
+    "empresa": "d",
+    "permanencia": "d",
+    "actividades": "d"
+  }
+},
+{
+  "model": "Sistema.cvexperiencialaboral",
+  "pk": 2,
+  "fields": {
+    "cv": 2,
+    "puesto": "d",
+    "empresa": "d",
+    "permanencia": "d",
+    "actividades": ""
+  }
+},
+{
+  "model": "Sistema.cvexperiencialaboral",
+  "pk": 3,
+  "fields": {
+    "cv": 3,
+    "puesto": "d",
+    "empresa": "d",
+    "permanencia": "d",
+    "actividades": ""
+  }
+},
+{
+  "model": "Sistema.cvexperienciadocente",
+  "pk": 1,
+  "fields": {
+    "cv": 1,
+    "materia": "d",
+    "periodo": "d"
+  }
+},
+{
+  "model": "Sistema.cvexperienciadocente",
+  "pk": 2,
+  "fields": {
+    "cv": 2,
+    "materia": "d",
+    "periodo": "d"
+  }
+},
+{
+  "model": "Sistema.cvexperienciadocente",
+  "pk": 3,
+  "fields": {
+    "cv": 3,
+    "materia": "d",
+    "periodo": "d"
+  }
+},
+{
+  "model": "Sistema.cvproductoacademico",
+  "pk": 1,
+  "fields": {
+    "cv": 1,
+    "actividad": "d",
+    "descripcion": "d",
+    "fecha": "d"
+  }
+},
+{
+  "model": "Sistema.cvproductoacademico",
+  "pk": 2,
+  "fields": {
+    "cv": 2,
+    "actividad": "d",
+    "descripcion": "",
+    "fecha": "d"
+  }
+},
+{
+  "model": "Sistema.cvproductoacademico",
+  "pk": 3,
+  "fields": {
+    "cv": 3,
+    "actividad": "d",
+    "descripcion": "f",
+    "fecha": "d"
+  }
+},
+{
+  "model": "Sistema.cvparticipacioninstructor",
+  "pk": 1,
+  "fields": {
+    "cv": 1,
+    "nombre_curso": "d",
+    "institucion": "d",
+    "duracion": "d",
+    "fecha": "d"
+  }
+},
+{
+  "model": "Sistema.cvparticipacioninstructor",
+  "pk": 2,
+  "fields": {
+    "cv": 2,
+    "nombre_curso": "d",
+    "institucion": "d",
+    "duracion": "d",
+    "fecha": "d"
+  }
+},
+{
+  "model": "Sistema.cvparticipacioninstructor",
+  "pk": 3,
+  "fields": {
+    "cv": 3,
+    "nombre_curso": "d",
+    "institucion": "d",
+    "duracion": "d",
+    "fecha": "d"
+  }
+},
+{
+  "model": "Sistema.listaasistencia",
+  "pk": 1,
+  "fields": {
+    "usuario": null,
+    "estado": "borrador",
+    "hoja_actual": "1",
+    "hoja_total": "1",
+    "instituto": "REYNOSA",
+    "clave_curso": "dd",
+    "folio": "d",
+    "nombre_curso": "d",
+    "instructor": "d",
+    "periodo": "d",
+    "duracion": "d",
+    "horario": "d",
+    "instructor_rfc": "dd",
+    "instructor_curp": "dddd",
+    "coordinador_rfc": "ddd",
+    "coordinador_curp": "ddd",
+    "fecha_creacion": "2025-11-30T23:17:47.009Z"
+  }
+},
+{
+  "model": "Sistema.listaasistencia",
+  "pk": 2,
+  "fields": {
+    "usuario": null,
+    "estado": "borrador",
+    "hoja_actual": "1",
+    "hoja_total": "1",
+    "instituto": "REYNOSA",
+    "clave_curso": "f",
+    "folio": "f",
+    "nombre_curso": "f",
+    "instructor": "g",
+    "periodo": "g",
+    "duracion": "g",
+    "horario": "g",
+    "instructor_rfc": "sss",
+    "instructor_curp": "sss",
+    "coordinador_rfc": "ss",
+    "coordinador_curp": "ss",
+    "fecha_creacion": "2025-11-30T23:19:36.493Z"
+  }
+},
+{
+  "model": "Sistema.listaasistencia",
+  "pk": 3,
+  "fields": {
+    "usuario": null,
+    "estado": "borrador",
+    "hoja_actual": "1",
+    "hoja_total": "1",
+    "instituto": "REYNOSA",
+    "clave_curso": "dd",
+    "folio": "g",
+    "nombre_curso": "h",
+    "instructor": "h",
+    "periodo": "h",
+    "duracion": "h",
+    "horario": "h",
+    "instructor_rfc": "d",
+    "instructor_curp": "d",
+    "coordinador_rfc": "d",
+    "coordinador_curp": "d",
+    "fecha_creacion": "2025-11-30T23:23:52.510Z"
+  }
+},
+{
+  "model": "Sistema.listaasistencia",
+  "pk": 4,
+  "fields": {
+    "usuario": 2,
+    "estado": "borrador",
+    "hoja_actual": "1",
+    "hoja_total": "1",
+    "instituto": "REYNOSA",
+    "clave_curso": "dd",
+    "folio": "c",
+    "nombre_curso": "mnmmm",
+    "instructor": "c",
+    "periodo": "d",
+    "duracion": "c",
+    "horario": "d",
+    "instructor_rfc": "ds",
+    "instructor_curp": "d",
+    "coordinador_rfc": "d",
+    "coordinador_curp": "d",
+    "fecha_creacion": "2025-12-03T20:44:39.797Z"
+  }
+},
+{
+  "model": "Sistema.listaasistencia",
+  "pk": 5,
+  "fields": {
+    "usuario": 4,
+    "estado": "borrador",
+    "hoja_actual": "1",
+    "hoja_total": "1",
+    "instituto": "REYNOSA",
+    "clave_curso": "d",
+    "folio": "d",
+    "nombre_curso": "d",
+    "instructor": "d",
+    "periodo": "d",
+    "duracion": "d",
+    "horario": "d",
+    "instructor_rfc": "f",
+    "instructor_curp": "f",
+    "coordinador_rfc": "f",
+    "coordinador_curp": "f",
+    "fecha_creacion": "2025-12-03T20:53:26.718Z"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 1,
+  "fields": {
+    "lista": 1,
+    "no_consecutivo": 1,
+    "nombre": "f",
+    "rfc": "f",
+    "puesto": "f",
+    "sexo": "f",
+    "asist_l": "g",
+    "asist_m1": "g",
+    "asist_m2": "g",
+    "asist_j": "g",
+    "asist_v": "g",
+    "concluyo": "g"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 2,
+  "fields": {
+    "lista": 1,
+    "no_consecutivo": 2,
+    "nombre": "g",
+    "rfc": "g",
+    "puesto": "g",
+    "sexo": "g",
+    "asist_l": "g",
+    "asist_m1": "g",
+    "asist_m2": "g",
+    "asist_j": "g",
+    "asist_v": "g",
+    "concluyo": "g"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 3,
+  "fields": {
+    "lista": 1,
+    "no_consecutivo": 3,
+    "nombre": "g",
+    "rfc": "g",
+    "puesto": "g",
+    "sexo": "g",
+    "asist_l": "g",
+    "asist_m1": "g",
+    "asist_m2": "g",
+    "asist_j": "g",
+    "asist_v": "g",
+    "concluyo": "g"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 4,
+  "fields": {
+    "lista": 1,
+    "no_consecutivo": 4,
+    "nombre": "g",
+    "rfc": "g",
+    "puesto": "g",
+    "sexo": "g",
+    "asist_l": "g",
+    "asist_m1": "g",
+    "asist_m2": "g",
+    "asist_j": "g",
+    "asist_v": "g",
+    "concluyo": "g"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 5,
+  "fields": {
+    "lista": 1,
+    "no_consecutivo": 5,
+    "nombre": "g",
+    "rfc": "g",
+    "puesto": "g",
+    "sexo": "g",
+    "asist_l": "g",
+    "asist_m1": "g",
+    "asist_m2": "g",
+    "asist_j": "g",
+    "asist_v": "g",
+    "concluyo": "g"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 6,
+  "fields": {
+    "lista": 1,
+    "no_consecutivo": 6,
+    "nombre": "g",
+    "rfc": "g",
+    "puesto": "g",
+    "sexo": "g",
+    "asist_l": "g",
+    "asist_m1": "g",
+    "asist_m2": "g",
+    "asist_j": "g",
+    "asist_v": "g",
+    "concluyo": "g"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 7,
+  "fields": {
+    "lista": 1,
+    "no_consecutivo": 7,
+    "nombre": "g",
+    "rfc": "g",
+    "puesto": "g",
+    "sexo": "g",
+    "asist_l": "g",
+    "asist_m1": "g",
+    "asist_m2": "g",
+    "asist_j": "g",
+    "asist_v": "g",
+    "concluyo": "g"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 8,
+  "fields": {
+    "lista": 2,
+    "no_consecutivo": 1,
+    "nombre": "g",
+    "rfc": "g",
+    "puesto": "g",
+    "sexo": "g",
+    "asist_l": "g",
+    "asist_m1": "g",
+    "asist_m2": "g",
+    "asist_j": "g",
+    "asist_v": "g",
+    "concluyo": "g"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 9,
+  "fields": {
+    "lista": 2,
+    "no_consecutivo": 2,
+    "nombre": "g",
+    "rfc": "g",
+    "puesto": "g",
+    "sexo": "g",
+    "asist_l": "g",
+    "asist_m1": "g",
+    "asist_m2": "g",
+    "asist_j": "g",
+    "asist_v": "g",
+    "concluyo": "g"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 10,
+  "fields": {
+    "lista": 2,
+    "no_consecutivo": 3,
+    "nombre": "g",
+    "rfc": "g",
+    "puesto": "g",
+    "sexo": "g",
+    "asist_l": "g",
+    "asist_m1": "g",
+    "asist_m2": "g",
+    "asist_j": "g",
+    "asist_v": "g",
+    "concluyo": "g"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 11,
+  "fields": {
+    "lista": 2,
+    "no_consecutivo": 4,
+    "nombre": "g",
+    "rfc": "g",
+    "puesto": "g",
+    "sexo": "g",
+    "asist_l": "g",
+    "asist_m1": "g",
+    "asist_m2": "g",
+    "asist_j": "g",
+    "asist_v": "g",
+    "concluyo": "g"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 12,
+  "fields": {
+    "lista": 3,
+    "no_consecutivo": 1,
+    "nombre": "h",
+    "rfc": "h",
+    "puesto": "h",
+    "sexo": "h",
+    "asist_l": "h",
+    "asist_m1": "h",
+    "asist_m2": "h",
+    "asist_j": "h",
+    "asist_v": "h",
+    "concluyo": "h"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 13,
+  "fields": {
+    "lista": 3,
+    "no_consecutivo": 2,
+    "nombre": "h",
+    "rfc": "h",
+    "puesto": "h",
+    "sexo": "h",
+    "asist_l": "h",
+    "asist_m1": "h",
+    "asist_m2": "h",
+    "asist_j": "h",
+    "asist_v": "h",
+    "concluyo": "h"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 14,
+  "fields": {
+    "lista": 3,
+    "no_consecutivo": 3,
+    "nombre": "h",
+    "rfc": "h",
+    "puesto": "h",
+    "sexo": "h",
+    "asist_l": "h",
+    "asist_m1": "h",
+    "asist_m2": "h",
+    "asist_j": "h",
+    "asist_v": "h",
+    "concluyo": "h"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 15,
+  "fields": {
+    "lista": 3,
+    "no_consecutivo": 4,
+    "nombre": "h",
+    "rfc": "h",
+    "puesto": "h",
+    "sexo": "h",
+    "asist_l": "h",
+    "asist_m1": "h",
+    "asist_m2": "h",
+    "asist_j": "h",
+    "asist_v": "h",
+    "concluyo": "h"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 16,
+  "fields": {
+    "lista": 3,
+    "no_consecutivo": 5,
+    "nombre": "h",
+    "rfc": "h",
+    "puesto": "h",
+    "sexo": "h",
+    "asist_l": "h",
+    "asist_m1": "h",
+    "asist_m2": "h",
+    "asist_j": "h",
+    "asist_v": "h",
+    "concluyo": "h"
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 17,
+  "fields": {
+    "lista": 3,
+    "no_consecutivo": 6,
+    "nombre": "h",
+    "rfc": "h",
+    "puesto": "h",
+    "sexo": "h",
+    "asist_l": "h",
+    "asist_m1": "h",
+    "asist_m2": "h",
+    "asist_j": "h",
+    "asist_v": "hh",
+    "concluyo": ""
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 18,
+  "fields": {
+    "lista": 4,
+    "no_consecutivo": 1,
+    "nombre": "c",
+    "rfc": "c",
+    "puesto": "c",
+    "sexo": "h",
+    "asist_l": "x",
+    "asist_m1": "",
+    "asist_m2": "",
+    "asist_j": "",
+    "asist_v": "",
+    "concluyo": ""
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 19,
+  "fields": {
+    "lista": 4,
+    "no_consecutivo": 2,
+    "nombre": "f",
+    "rfc": "f",
+    "puesto": "f",
+    "sexo": "c",
+    "asist_l": "x",
+    "asist_m1": "",
+    "asist_m2": "",
+    "asist_j": "",
+    "asist_v": "",
+    "concluyo": ""
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 20,
+  "fields": {
+    "lista": 4,
+    "no_consecutivo": 3,
+    "nombre": "f",
+    "rfc": "f",
+    "puesto": "f",
+    "sexo": "c",
+    "asist_l": "x",
+    "asist_m1": "",
+    "asist_m2": "",
+    "asist_j": "",
+    "asist_v": "",
+    "concluyo": ""
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 21,
+  "fields": {
+    "lista": 5,
+    "no_consecutivo": 1,
+    "nombre": "d",
+    "rfc": "d",
+    "puesto": "d",
+    "sexo": "d",
+    "asist_l": "d",
+    "asist_m1": "",
+    "asist_m2": "",
+    "asist_j": "",
+    "asist_v": "",
+    "concluyo": ""
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 22,
+  "fields": {
+    "lista": 5,
+    "no_consecutivo": 2,
+    "nombre": "d",
+    "rfc": "d",
+    "puesto": "d",
+    "sexo": "d",
+    "asist_l": "d",
+    "asist_m1": "",
+    "asist_m2": "",
+    "asist_j": "",
+    "asist_v": "",
+    "concluyo": ""
+  }
+},
+{
+  "model": "Sistema.asistenciaparticipante",
+  "pk": 23,
+  "fields": {
+    "lista": 5,
+    "no_consecutivo": 3,
+    "nombre": "d",
+    "rfc": "d",
+    "puesto": "d",
+    "sexo": "d",
+    "asist_l": "d",
+    "asist_m1": "",
+    "asist_m2": "",
+    "asist_j": "",
+    "asist_v": "",
+    "concluyo": ""
+  }
+}
+]

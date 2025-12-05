@@ -1,0 +1,314 @@
+{% extends 'Sistema/layouts/menu_instructor.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <meta charset="UTF-8">
+    <title>Curriculum Vitae</title>
+    <link rel="stylesheet" href="{% static 'Sistema/css/cv/cv.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="formulario main-content">
+
+        {# --- BOTÓN DE DESCARGA AUTOMÁTICO --- #}
+        {% if download_data %}
+            <div class="alert alert-success text-center shadow-sm web-only" style="border-left: 5px solid #1b396a; margin-bottom: 30px; padding: 20px; background-color: #d1e7dd;">
+                <h4 style="color: #1b396a; margin-top: 0;"><i class="fa-solid fa-circle-check"></i> ¡Guardado Exitosamente!</h4>
+                <p style="font-size: 14px; color: #0f5132;">Tu CV ha sido registrado. Puedes descargar la versión firmada aquí:</p>
+
+                <a href="{% url 'descargar_pdf' download_data.tipo download_data.pk %}"
+                   class="btn"
+                   style="background-color: #1b396a; color: white; border-radius: 50px; padding: 10px 30px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px;">
+                    <i class="fa-solid fa-file-pdf me-2"></i> Descargar PDF
+                </a>
+            </div>
+        {% endif %}
+
+        {# --- MENSAJES DE ERROR --- #}
+        {% if form.errors %}
+            <div style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 20px; border: 1px solid #f5c6cb; border-radius: 5px;">
+                <strong>No se pudo guardar el CV. Por favor revisa:</strong>
+                <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ field.label }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        {# --- CINTILLA ESTANDARIZADA --- #}
+        <header class="document-header-print">
+            <table class="cintilla-table">
+                <tr>
+                    <td class="col-logos">
+                        <div class="logos-container">
+                            <img src="{% static 'Sistema/img/LogoTecnmChiquis.png' %}" alt="TecNM" class="logo-img logo-tecnm">
+                            <img src="{% static 'Sistema/img/LogoItrNoFondo.png' %}" alt="Tec Reynosa" class="logo-img logo-tec">
+                        </div>
+                    </td>
+                    <td class="col-center">
+                        <div class="center-content">
+                            <h1 class="cintilla-main-title">CURRICULUM VITAE</h1>
+                            <div class="cintilla-norma">Referencia a la Norma: ISO 9001:2015 7.2 7.3</div>
+                        </div>
+                    </td>
+                    <td class="col-meta">
+                        <div class="meta-row"><strong>Código:</strong> ITR-AC-F59</div>
+                        <div class="meta-row"><strong>Versión:</strong> 4</div>
+                        <div class="meta-row"><strong>Fecha de Emisión:<br>septiembre de 2022</strong></div>
+                        <div class="meta-row"><strong>Página:</strong> 1 de 2</div>
+                    </td>
+                </tr>
+            </table>
+        </header>
+
+        <form method="POST" class="cv-form-body">
+            {% csrf_token %}
+
+            {# Títulos #}
+            <div class="titles-container">
+                <h2 class="institute-title">INSTITUTO TECNOLÓGICO DE REYNOSA</h2>
+            </div>
+
+            {# --- 1. DATOS PERSONALES (Obligatorios) --- #}
+            <section class="form-section">
+                <h4 class="section-header">1. DATOS PERSONALES (1)</h4>
+
+                <div class="form-row">
+                    <label>Nombre: (1)</label>
+                    <input type="text" name="nombre" class="input-line full-width" value="{{ form.nombre.value|default:'' }}" required>
+                </div>
+
+                <div class="form-row split-row">
+                    <div class="field-group flex-grow">
+                        <label>Fecha de Nacimiento: (2)</label>
+                        <input type="date" name="fecha_nacimiento" class="input-line" value="{{ form.fecha_nacimiento.value|date:'Y-m-d'|default:'' }}" required>
+                    </div>
+                    <div class="field-group flex-grow">
+                        <label>CURP: (3)</label>
+                        <input type="text" name="curp" class="input-line" value="{{ form.curp.value|default:'' }}" required>
+                    </div>
+                </div>
+
+                <div class="form-row split-row">
+                    <div class="field-group flex-grow">
+                        <label>RFC: (4)</label>
+                        <input type="text" name="rfc" class="input-line" value="{{ form.rfc.value|default:'' }}" required>
+                    </div>
+                    <div class="field-group flex-grow">
+                        <label>Teléfono de contacto: (5)</label>
+                        <input type="tel" name="telefono" class="input-line" value="{{ form.telefono.value|default:'' }}" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label>Correo electrónico: (6)</label>
+                    <input type="email" name="correo" class="input-line full-width" value="{{ form.correo.value|default:'' }}" required>
+                </div>
+            </section>
+
+            {# --- 2. FORMACIÓN ACADÉMICA --- #}
+            <section class="form-section mt-20">
+                <h4 class="section-header">2. FORMACIÓN ACADÉMICA (7)</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th width="20%">Formación Académica</th>
+                            <th width="40%">Institución</th>
+                            <th width="25%">Titulación</th>
+                            <th width="15%">Cédula Prof.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="bold-cell">Licenciatura</td>
+                            <td><input type="text" name="lic_institucion" class="input-clean" value="{{ form.lic_institucion.value|default:'' }}"></td>
+                            <td><input type="text" name="lic_titulacion" class="input-clean" value="{{ form.lic_titulacion.value|default:'' }}"></td>
+                            <td><input type="text" name="lic_cedula" class="input-clean" value="{{ form.lic_cedula.value|default:'' }}"></td>
+                        </tr>
+                        <tr>
+                            <td class="bold-cell">Maestría</td>
+                            <td><input type="text" name="maestria_institucion" class="input-clean" value="{{ form.maestria_institucion.value|default:'' }}"></td>
+                            <td><input type="text" name="maestria_titulacion" class="input-clean" value="{{ form.maestria_titulacion.value|default:'' }}"></td>
+                            <td><input type="text" name="maestria_cedula" class="input-clean" value="{{ form.maestria_cedula.value|default:'' }}"></td>
+                        </tr>
+                        <tr>
+                            <td class="bold-cell">Doctorado</td>
+                            <td><input type="text" name="doc_institucion" class="input-clean" value="{{ form.doc_institucion.value|default:'' }}"></td>
+                            <td><input type="text" name="doc_titulacion" class="input-clean" value="{{ form.doc_titulacion.value|default:'' }}"></td>
+                            <td><input type="text" name="doc_cedula" class="input-clean" value="{{ form.doc_cedula.value|default:'' }}"></td>
+                        </tr>
+                        <tr>
+                            <td class="bold-cell">Especialidad</td>
+                            <td><input type="text" name="esp_institucion" class="input-clean" value="{{ form.esp_institucion.value|default:'' }}"></td>
+                            <td><input type="text" name="esp_titulacion" class="input-clean" value="{{ form.esp_titulacion.value|default:'' }}"></td>
+                            <td><input type="text" name="esp_cedula" class="input-clean" value="{{ form.esp_cedula.value|default:'' }}"></td>
+                        </tr>
+                        <tr>
+                            <td class="bold-cell">Otros estudios</td>
+                            <td><input type="text" name="otros_institucion" class="input-clean" value="{{ form.otros_institucion.value|default:'' }}"></td>
+                            <td><input type="text" name="otros_titulacion" class="input-clean" value="{{ form.otros_titulacion.value|default:'' }}"></td>
+                            <td><input type="text" name="otros_cedula" class="input-clean" value="{{ form.otros_cedula.value|default:'' }}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            {# --- 3. EXPERIENCIA LABORAL --- #}
+            <section class="form-section mt-20">
+                <h4 class="section-header">3. EXPERIENCIA LABORAL (8)</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th width="5%">No.</th>
+                            <th width="20%">Puesto</th>
+                            <th width="25%">Empresa</th>
+                            <th width="15%">Permanencia</th>
+                            <th width="35%">Actividades</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if tabla_laboral %}
+                            {# VISTA PDF #}
+                            {% for fila in tabla_laboral %}
+                            <tr>
+                                <td class="center-text bold-cell">{{ forloop.counter }}</td>
+                                <td><input type="text" class="input-clean" value="{{ fila.puesto|default:'' }}"></td>
+                                <td><input type="text" class="input-clean" value="{{ fila.empresa|default:'' }}"></td>
+                                <td><input type="text" class="input-clean" value="{{ fila.permanencia|default:'' }}"></td>
+                                <td><textarea class="textarea-clean">{{ fila.actividades|default:'' }}</textarea></td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            {# VISTA WEB #}
+                            {% for i in "123" %}
+                            <tr>
+                                <td class="center-text bold-cell">{{ forloop.counter }}</td>
+                                <td><input type="text" name="exp_puesto_{{forloop.counter}}" class="input-clean"></td>
+                                <td><input type="text" name="exp_empresa_{{forloop.counter}}" class="input-clean"></td>
+                                <td><input type="text" name="exp_permanencia_{{forloop.counter}}" class="input-clean"></td>
+                                <td><textarea name="exp_actividades_{{forloop.counter}}" rows="2" class="textarea-clean"></textarea></td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </section>
+
+            {# --- 4. EXPERIENCIA DOCENTE --- #}
+            <section class="form-section mt-20">
+                <h4 class="section-header">4. EXPERIENCIA DOCENTE (9)</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th width="5%">No.</th>
+                            <th width="60%">Materia</th>
+                            <th width="35%">Periodo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if tabla_docente %}
+                            {% for fila in tabla_docente %}
+                            <tr>
+                                <td class="center-text bold-cell">{{ forloop.counter }}</td>
+                                <td><input type="text" class="input-clean" value="{{ fila.materia|default:'' }}"></td>
+                                <td><input type="text" class="input-clean" value="{{ fila.periodo|default:'' }}"></td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in "123" %}
+                            <tr>
+                                <td class="center-text bold-cell">{{ forloop.counter }}</td>
+                                <td><input type="text" name="doc_materia_{{forloop.counter}}" class="input-clean"></td>
+                                <td><input type="text" name="doc_periodo_{{forloop.counter}}" class="input-clean"></td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </section>
+
+            {# --- 5. PRODUCTOS ACADÉMICOS --- #}
+            <section class="form-section mt-20">
+                <h4 class="section-header">5. ACTIVIDADES O PRODUCTOS ACADÉMICOS (10)</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th width="5%">No.</th>
+                            <th width="30%">Actividad/Producto</th>
+                            <th width="45%">Descripción</th>
+                            <th width="20%">Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if tabla_productos %}
+                            {% for fila in tabla_productos %}
+                            <tr>
+                                <td class="center-text bold-cell">{{ forloop.counter }}</td>
+                                <td><input type="text" class="input-clean" value="{{ fila.actividad|default:'' }}"></td>
+                                <td><textarea class="textarea-clean">{{ fila.descripcion|default:'' }}</textarea></td>
+                                <td><input type="text" class="input-clean" value="{{ fila.fecha|default:'' }}"></td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in "123" %}
+                            <tr>
+                                <td class="center-text bold-cell">{{ forloop.counter }}</td>
+                                <td><input type="text" name="prod_actividad_{{forloop.counter}}" class="input-clean"></td>
+                                <td><textarea name="prod_desc_{{forloop.counter}}" rows="2" class="textarea-clean"></textarea></td>
+                                <td><input type="text" name="prod_fecha_{{forloop.counter}}" class="input-clean"></td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </section>
+
+            {# --- 6. INSTRUCTOR --- #}
+            <section class="form-section mt-20">
+                <h4 class="section-header">6. PARTICIPACIÓN COMO INSTRUCTOR (11)</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th width="5%">No.</th>
+                            <th width="30%">Nombre de curso</th>
+                            <th width="30%">Institución o Empresa</th>
+                            <th width="15%">Duración (hrs)</th>
+                            <th width="20%">Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if tabla_instructor %}
+                            {% for fila in tabla_instructor %}
+                            <tr>
+                                <td class="center-text bold-cell">{{ forloop.counter }}</td>
+                                <td><input type="text" class="input-clean" value="{{ fila.nombre_curso|default:'' }}"></td>
+                                <td><input type="text" class="input-clean" value="{{ fila.institucion|default:'' }}"></td>
+                                <td><input type="text" class="input-clean center-text" value="{{ fila.duracion|default:'' }}"></td>
+                                <td><input type="text" class="input-clean center-text" value="{{ fila.fecha|default:'' }}"></td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            {% for i in "123" %}
+                            <tr>
+                                <td class="center-text bold-cell">{{ forloop.counter }}</td>
+                                <td><input type="text" name="inst_curso_{{forloop.counter}}" class="input-clean"></td>
+                                <td><input type="text" name="inst_org_{{forloop.counter}}" class="input-clean"></td>
+                                <td><input type="text" name="inst_duracion_{{forloop.counter}}" class="input-clean center-text"></td>
+                                <td><input type="text" name="inst_fecha_{{forloop.counter}}" class="input-clean center-text"></td>
+                            </tr>
+                            {% endfor %}
+                        {% endif %}
+                    </tbody>
+                </table>
+            </section>
+
+            <div class="form-submit-row web-only">
+                <button type="submit">Guardar Curriculum</button>
+            </div>
+
+        </form>
+    </section>
+{% endblock %}

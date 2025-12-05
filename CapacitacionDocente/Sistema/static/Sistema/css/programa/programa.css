@@ -1,0 +1,228 @@
+/* =========================================
+   ESTILOS GENERALES (WEB)
+   ========================================= */
+.programa-container.main-content {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    color: #000;
+    max-width: 1200px;
+    margin: 20px auto;
+    margin-top: 100px;
+    background-color: #fff;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.mt-40 { margin-top: 40px; }
+.center-text { text-align: center; }
+
+/* =========================================
+   CINTILLA (HEADER)
+   ========================================= */
+.document-header-print {
+    margin-bottom: 20px;
+    border: 1px solid #000;
+}
+
+.cintilla-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cintilla-table td {
+    padding: 5px;
+    vertical-align: middle;
+    border-right: 1px solid #000;
+}
+.cintilla-table td:last-child { border-right: none; }
+
+.col-logos { width: 15%; text-align: center; }
+.logos-container { display: flex; justify-content: space-around; align-items: center; }
+.logo-img { max-height: 45px; width: auto; }
+
+.col-center { width: 70%; text-align: center; }
+.cintilla-main-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+}
+.cintilla-norma { font-size: 10px; margin-top: 4px; }
+
+.col-meta { width: 15%; font-size: 9px; padding: 0 !important; }
+.meta-row { border-bottom: 1px solid #000; padding: 2px 5px; }
+.meta-row:last-child { border-bottom: none; }
+
+/* =========================================
+   TÍTULOS
+   ========================================= */
+.titles-container { text-align: center; margin-bottom: 20px; }
+.institute-title { font-size: 14px; font-weight: bold; margin: 0; text-transform: uppercase; }
+.program-subtitle { font-size: 12px; font-weight: bold; margin: 5px 0 15px 0; text-transform: uppercase; }
+
+.periodo-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-weight: bold;
+}
+.periodo-row label { margin-right: 10px; }
+.periodo-row input {
+    width: 300px;
+    border: none;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    font-weight: bold;
+    outline: none;
+}
+
+/* =========================================
+   TABLA PRINCIPAL
+   ========================================= */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000;
+    font-size: 10px;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #000;
+    padding: 4px;
+    vertical-align: middle;
+}
+
+.header-gray th { background-color: #999; color: #000; font-weight: bold; text-align: center; }
+.header-white th { background-color: #fff; text-align: center; font-weight: normal; }
+
+.input-clean {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: inherit;
+    font-size: 10px;
+    resize: vertical;
+}
+
+/* =========================================
+   TABLA DE FIRMAS
+   ========================================= */
+.signature-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000;
+}
+.signature-table th, .signature-table td {
+    border: 1px solid #000;
+    padding: 5px;
+}
+.signature-table th { text-align: center; background-color: #e0e0e0; }
+
+.signature-space td { height: 60px; }
+
+.sig-container { text-align: center; }
+.sig-label { border-top: 1px solid #000; padding-top: 5px; font-weight: bold; font-size: 10px; margin-bottom: 5px; }
+
+.date-container { display: flex; align-items: flex-end; padding-left: 5px; }
+.short-date { width: 150px; }
+
+.input-line {
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    padding: 0 5px;
+}
+
+/* =========================================
+   BOTÓN
+   ========================================= */
+.form-submit-row { text-align: center; margin-top: 30px; }
+.form-submit-row button {
+    padding: 10px 30px;
+    background-color: #1b396a;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* =========================================
+   ESTILOS DE IMPRESIÓN (PDF)
+   ========================================= */
+@media print {
+    /* Forzar orientación horizontal para que quepa la tabla */
+    @page { size: landscape; margin: 1cm; }
+
+    body {
+        margin: 0; padding: 0;
+        font-family: Arial, sans-serif !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+    }
+
+    /* OCULTAR ELEMENTOS WEB */
+    .Contenedor__Navbar, .web-only, .form-submit-row { display: none !important; }
+
+    .programa-container.main-content {
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* --- CINTILLA Y LOGOS (FIXED) --- */
+    .document-header-print {
+        display: block !important;
+        border: none !important;
+        margin-bottom: 10px !important;
+    }
+    .cintilla-table { width: 100% !important; border: 1px solid #000 !important; }
+    .cintilla-table td { border: 1px solid #000 !important; padding: 2px !important; }
+
+    /* Logos sin Flexbox */
+    .col-logos { width: 15% !important; text-align: center !important; padding: 2px !important; }
+    .logos-container { display: block !important; text-align: center !important; white-space: nowrap !important; }
+    .logo-img {
+        display: inline-block !important; width: auto !important; height: auto !important;
+        max-height: 45px !important; max-width: 45% !important;
+        margin: 0 2px !important; vertical-align: middle !important; position: static !important;
+    }
+
+    /* --- INPUTS Y TEXTAREAS (TEXTO PLANO) --- */
+    .input-clean, .input-line, .data-table input, .data-table textarea {
+        border: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        resize: none !important;
+        overflow: hidden !important;
+        font-family: inherit !important;
+        font-size: 10px !important;
+        color: #000 !important;
+        min-height: 12px;
+        /* Asegurar que el texto se vea y no se corte */
+        white-space: pre-wrap !important;
+        height: auto !important;
+    }
+
+    .periodo-row input {
+        border-bottom: 1px solid #000 !important; /* Mantener línea en periodo */
+        text-align: center !important;
+    }
+
+    /* --- TABLAS --- */
+    .data-table { border: 1px solid #000 !important; width: 100% !important; }
+    .data-table th, .data-table td { border: 1px solid #000 !important; padding: 2px 4px !important; }
+    .header-gray th { background-color: #999 !important; color: #000 !important; font-weight: bold !important; }
+
+    /* --- FIRMAS --- */
+    .signature-table { margin-top: 20px !important; }
+    .sig-label { border-top: 1px solid #000 !important; padding-top: 2px !important; margin-top: 30px !important; }
+}

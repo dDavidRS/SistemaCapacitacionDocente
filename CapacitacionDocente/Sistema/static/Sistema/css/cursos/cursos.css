@@ -1,0 +1,132 @@
+/* =========================================
+   VARIABLES Y GENERALES
+   ========================================= */
+:root {
+    --tecnm-blue: #1b396a; /* Azul Institucional */
+    --bg-light: #f4f6f9;   /* Fondo gris suave */
+}
+
+body {
+    background-color: var(--bg-light);
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+}
+
+/* =========================================
+   NAVBAR (Barra Superior)
+   ========================================= */
+.navbar-tecnm {
+    background-color: var(--tecnm-blue);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* =========================================
+   CONTENEDOR TIPO "DOCUMENTO"
+   ========================================= */
+.card-custom {
+    background: white;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05); /* Sombra suave */
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.page-header {
+    border-bottom: 2px solid #eee;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.page-title {
+    color: var(--tecnm-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/* =========================================
+   TABLA
+   ========================================= */
+.table thead th {
+    background-color: var(--tecnm-blue);
+    color: white;
+    font-weight: 500;
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    padding: 12px;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.table td {
+    vertical-align: middle;
+    font-size: 0.95rem;
+    padding: 12px;
+}
+
+.text-primary-custom {
+    color: var(--tecnm-blue);
+}
+
+/* =========================================
+   BADGES DE ESTADO
+   ========================================= */
+.status-badge {
+    padding: 0.5em 1em;
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Colores específicos */
+.status-disponible {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}
+
+.status-pausa {
+    background-color: #fff3cd;
+    color: #664d03;
+    border: 1px solid #ffecb5;
+}
+
+.status-cancelado {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}
+
+/* =========================================
+   BOTONES
+   ========================================= */
+.btn-regresar {
+    background-color: transparent;
+    border: 1px solid rgba(255,255,255,0.5);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-regresar:hover {
+    background-color: white;
+    color: var(--tecnm-blue);
+}
